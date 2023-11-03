@@ -1,62 +1,46 @@
-# Project Title : Vehicle Parking Management System
+<h1>Vehicle Parking Management System</h1>
 
-The major modules of this project are :
+<h3>Project Overview</h3>
+This is a python console application built as a minor project for my undergoing internship at <i><strong>Watchguard Technologies, Noida.</strong></i>
+<br>
+This project contains functionalities to simplify the booking process of vehicle parking and helps in effective management of customer data. Customers can book a parking slot based on their vehicle type by getting the help of an attendant. Staff or attendant acts as an intermediator between customer and the management system.
 
-1. Authentication
-    - Max. login attempts
-    - First login
-    - Invalid login
-    - Login
-    - Role based access 
-
-2. Admin
-    - Register employee
-    - Update employee details
-    - See employee details
-    - Remove employee
-    - See default password for employee
-    - Manage vehicle type
-        - Register vehicle type
-        - Update vehicle category or price
-        - See vehicle type details
-        - Remove vehicle category and price
-    - Manage parking slots
-        - Add parking slot 
-        - Update parking slot
-        - View parking slot detials
-        - Remove parking slot
-    - See status
-        - Current day status
-        - Current year status
-        - Total vehicle entries
-    - View your details
-
-3. Employee
-    - Register customer
-    - Update customer details
-    - View customer details
-    - View parking slot detials
-    - Book a parking slot
-    - Vacate a parking slot
-    - View your details
-    - View booking details
-    - View parking charges for vehicle type
-    
-4. Parking slot  
-    - register a parking slot
-    - update a parking slot
-    - view parking slot
-    - remove parking slot
-
-5. Slot booking 
-    - Book a slot
-    - Vacant a slot
-    - View booking details
-
-6. Vehicle Type 
-    - Add or activate a parking slot
-    - Deactivate parking slot
-    - View parking slot detials
-    - Remove parking slot
-
-    
+<h3>Key Features</h3>
+This project offers below mentioned functionalities and features:<br>
+<ol>
+    <li>User authentication and role-based access as admin or attendant.</li>
+    <li>Interactive interface.</li>
+    <li>Maintaining confidentiality of user credentials through hashing.</li>
+    <li>Logging and monitoring.</li>
+    <li>Input validations using Regex.</li>
+    <li>Exception Handling.</li>
+    <li>Clean code with proper folder structure.</li>
+    <li>Classes following single responsibility principles.</li>
+    <li> Maintained different files for prompts and input statements showing uniformity.</li>
+</ol>
+<h3>Major Modules</h3>
+<ul>
+    <li>Authentication</li>
+    <li>Admin</li>
+    <li>Employee</li>
+    <li>Parking slot</li>
+    <li>Slot Booking</li>
+    <li>Vehicle Type</li>
+</ul>
+<h3>Tech Stack</h3>
+<ul>
+    <li><i><strong>Language :</strong></i> Python</li>
+    <li><i><strong>Database :</strong></i> SQLite</li>
+    <li><i><strong>Integrated Development Environment :</strong></i> Visual Studio Code</li>
+</ul>
+<h3>UML Diagrams</h3>
+<ul>
+    <li><h3>Flow Diagram</h3></li>
+    <img src="diagrams\flow_diagram.jpg" alt="Flow Diagram" width="980" height="480">
+    <li><h3>Class Diagram</li>
+    <img src="diagrams\class_diagram.png" alt="Class Diagram" width="980" height="500">
+    <li><h3>Database Schema</li>
+    <img src="diagrams\db_schema.png" alt="DB Schema" width="980" height="480">
+    <li><h3>Use Case Diagram</h3></li>
+    <img src="diagrams\use_case_diagram.png" alt="Use Case Diagram" width="750" height="450">
+</ul>
