@@ -4,7 +4,7 @@
 import random
 import shortuuid
 
-from config.statements.prompts_config import Config
+from config.statements.config import Config
 from config.query.query_config import QueryConfig
 from database.query_executor import QueryExecutor
 from parking_manager.parking_charges import ParkingCharges
@@ -45,14 +45,15 @@ class SlotBooking(ParkingCharges):
             booking_parking_slot_no = parking_slot_no[random_index][0]
             QueryExecutor.save_data_in_database(
                 QueryConfig.query_for_creating_slot_booking,
-                (booking_id, customer_id, booking_parking_slot_no, cust_in_date, cust_in_time, cust_out_date)
+                (booking_id, customer_id, booking_parking_slot_no, cust_in_date, cust_in_time, cust_out_date),
+                ""
             )
             query_for_updating_parking_slot_status = QueryConfig.query_for_updating_parking_slot_detail_with_parking_slot_no.format("status")
             QueryExecutor.save_data_in_database(
                 query_for_updating_parking_slot_status,
-                ("booked", booking_parking_slot_no)
+                ("booked", booking_parking_slot_no),
+                Config.parking_slot_assigned_prompt.format(booking_parking_slot_no) + "\n"
             )
-            print(Config.parking_slot_assigned_prompt.format(booking_parking_slot_no))
         
     def view_booking_details(self) -> None:
         """
@@ -114,13 +115,14 @@ class SlotBooking(ParkingCharges):
             if charges == 0.0:
                 return
             query_for_parking_slot_updation = QueryConfig.query_for_updating_parking_slot_detail_with_parking_slot_no.format("status")
+            success_message = Config.parking_slot_vacant_prompt + "\n" + Config.print_parking_charges.format(charges, hours_spent) + "\n"
             QueryExecutor.save_data_in_database(
                 query_for_parking_slot_updation,
-                ("vacant", parking_slot_no)
+                ("vacant", parking_slot_no),
+                ""
             )
             QueryExecutor.save_data_in_database(
                 QueryConfig.query_for_updating_details_for_vacating_parking_slot,
-                (out_date, out_time, hours_spent, charges, booking_id)
+                (out_date, out_time, hours_spent, charges, booking_id),
+                success_message
             )
-            print(Config.parking_slot_vacant_prompt + "\n")
-            print(Config.print_parking_charges.format(charges, hours_spent) + "\n")

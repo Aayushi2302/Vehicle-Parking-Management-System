@@ -3,7 +3,7 @@
 """
 import logging
 
-from config.statements.prompts_config import Config
+from config.statements.config import Config
 from config.menu.menu_prompts_config import MenuConfig
 from config.query.query_config import QueryConfig
 from database.query_executor import QueryExecutor
@@ -74,9 +74,9 @@ def employee_details_update_menu():
 
                 QueryExecutor.save_data_in_database(
                     query,
-                    (new_data, emp_id)
+                    (new_data, emp_id),
+                    Config.employee_updation_successful_prompt + "\n"
                 )
-                print(Config.employee_updation_successful_prompt + "\n")
             except ValueError:
                 logger.debug(ValueError)
                 print(Config.invalid_input_prompt + "\n")

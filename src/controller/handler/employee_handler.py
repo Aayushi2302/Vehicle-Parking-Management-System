@@ -3,7 +3,7 @@
 """
 import logging
 
-from config.statements.prompts_config import Config
+from config.statements.config import Config
 from config.menu.menu_prompts_config import MenuConfig
 from controller.employee_controller import EmployeeController
 from parking_manager.parking_charges import ParkingCharges
@@ -11,7 +11,7 @@ from utils.common import Common
 
 logger = logging.getLogger('employee_handler')
 
-class EmployeeOperations(ParkingCharges):
+class EmployeeHandler(ParkingCharges):
     """
         Class for performing employee menu related interactions.
     """
@@ -42,7 +42,7 @@ class EmployeeOperations(ParkingCharges):
                     case 7:
                         employee_obj.view_booking_details()
                     case 8:
-                        EmployeeOperations.view_parking_charges_for_vehicle_type()
+                        EmployeeHandler.view_parking_charges_for_vehicle_type()
                     case 9:
                         common_obj.view_emp_details()
                     case 10:

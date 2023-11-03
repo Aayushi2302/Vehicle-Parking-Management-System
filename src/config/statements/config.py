@@ -124,11 +124,14 @@ class Config:
         cls.print_parking_charges = data["print_parking_charges"]
 
         # query_executor prompts
-        cls.error_while_handling_database_requests_prompt = data["error_while_handling_database_requests"]
-        cls.some_unexpected_error_occured = data["some_unexpected_error_occured"]
+        cls.integrity_error_message_prompt = data["integrity_error_message"]
+        cls.operational_error_message_prompt = data["operational_error_message"]
+        cls.programming_error_message_prompt = data["programming_error_message"]
+        cls.general_exception_message_prompt = data["general_exception_message"]
 
         # validator prompts
         cls.username_format_prompt = data["username_format"]
         cls.vehicle_number_foramt_prompt = data["vehicle_number_format"]
         cls.number_input_prompt = data["number_input"]
-        cls.age_restriction_prompt = data["age_restriction"] 
+        cls.age_restriction_prompt = data["age_restriction"]
+        cls.cannot_create_admin = data["cannot_create_admin"]

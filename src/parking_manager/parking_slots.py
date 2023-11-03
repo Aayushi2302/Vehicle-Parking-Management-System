@@ -1,7 +1,7 @@
 """
     Module for maintaining parking slot details.
 """
-from config.statements.prompts_config import Config
+from config.statements.config import Config
 from config.query.query_config import QueryConfig
 from database.query_executor import QueryExecutor
 from utils.common import Common
@@ -33,9 +33,9 @@ class ParkingSlot:
                 type_id = vehicle_type_data[0][0]
                 QueryExecutor.save_data_in_database(
                     QueryConfig.query_for_creating_parking_slot,
-                    (parking_slot_number, type_id)
+                    (parking_slot_number, type_id),
+                    Config.parking_slot_registration_successful_prompt + "\n"
                 )
-                print(Config.parking_slot_registration_successful_prompt + "\n")
         else:
             status = parking_slot_data[0][2]
             if status == "vacant":
@@ -45,9 +45,9 @@ class ParkingSlot:
                 query_for_updating_parking_slot_status = QueryConfig.query_for_updating_parking_slot_detail_with_parking_slot_no.format("status")
                 QueryExecutor.save_data_in_database(
                     query_for_updating_parking_slot_status,
-                    ("vacant", parking_slot_number)
+                    ("vacant", parking_slot_number),
+                    Config.parking_slot_activation_successful_prompt + "\n"
                 )
-                print(Config.parking_slot_activation_successful_prompt + "\n")
         
     def deactivate_parking_slot(self) -> None:
         """
@@ -70,9 +70,9 @@ class ParkingSlot:
             query_for_updating_parking_slot_status = QueryConfig.query_for_updating_parking_slot_detail_with_parking_slot_no.format("status")
             QueryExecutor.save_data_in_database(
                 query_for_updating_parking_slot_status,
-                ("inactive", parking_slot_number)
+                ("inactive", parking_slot_number),
+                Config.parking_slot_deactivation_successful_prompt + "\n"
             )
-            print(Config.parking_slot_deactivation_successful_prompt + "\n")
 
     def view_parking_slot(self) -> None:
         """
@@ -105,6 +105,6 @@ class ParkingSlot:
         query_for_deleting_parking_slot = QueryConfig.query_for_updating_parking_slot_detail_with_parking_slot_no.format("status")
         QueryExecutor.save_data_in_database(
             query_for_deleting_parking_slot,
-            ("deleted", parking_slot_number, )
+            ("deleted", parking_slot_number, ),
+            Config.parking_slot_deletion_successful_prompt + "\n"
         )
-        print(Config.parking_slot_deletion_successful_prompt + "\n")

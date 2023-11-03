@@ -5,7 +5,7 @@ from datetime import datetime
 import logging
 import re
 
-from config.statements.prompts_config import Config
+from config.statements.config import Config
 from utils.logs.logs_config import LogConfig
 
 TYPE_ID_REGEX = r"^TYPE[a-zA-Z0-9]+$"

@@ -32,6 +32,3 @@ class LogConfig:
 
         # validator logs
         cls.invalid_input_exception_prompt = data["invalid_input_exception_info"]
-
-        # helpers logs
-        cls.password_changed_successful_info_prompt = data["password_changed_successful_info"]

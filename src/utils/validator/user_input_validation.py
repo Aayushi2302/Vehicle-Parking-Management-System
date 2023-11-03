@@ -4,7 +4,7 @@
 import re
 import logging 
 
-from config.statements.prompts_config import Config
+from config.statements.config import Config
 from utils.logs.logs_config import LogConfig
 
 NAME_REGEX = r"^([A-Za-z]{2,25}\s*)"
@@ -74,7 +74,7 @@ class UserInputValidation:
         while True:
             try:
                 age = int(input(Config.employee_age_input_prompt))
-                if age > 60:
+                if age > 60 and age < 15:
                     print(Config.age_restriction_prompt + "\n")
                     continue
                 return age
@@ -105,10 +105,13 @@ class UserInputValidation:
             validation of role using regular expression
         """
         while True:
-            role = input(Config.role_prompt)
+            role = input(Config.role_prompt).lower()
             check = input_validation(ROLE_REGEX, role)
+            if role == "admin":
+                print(Config.cannot_create_admin + "\n")
+                continue
             if check:
-                return role.lower()
+                return role
             
     @staticmethod
     def input_email_address() -> str:

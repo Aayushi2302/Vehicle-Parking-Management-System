@@ -9,6 +9,11 @@ class DatabaseConnection:
     """
         Class for creating and closing database connection.
     """
+    def __new__(cls, *args, **kwargs) -> "DatabaseConnection":
+        if not hasattr(cls, *args, **kwargs):
+            cls.instance = super().__new__(cls)
+        return cls.instance
+
     def __init__(self, host) -> None:
         self.connection = None
         self.host = host

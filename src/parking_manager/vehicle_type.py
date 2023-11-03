@@ -3,7 +3,7 @@
 """
 import shortuuid
 
-from config.statements.prompts_config import Config
+from config.statements.config import Config
 from config.query.query_config import QueryConfig
 from database.query_executor import QueryExecutor
 from utils.common import Common
@@ -29,9 +29,9 @@ class VehicleType:
             type_id = "TYPE" + shortuuid.ShortUUID().random(length = 5)
             QueryExecutor.save_data_in_database(
                 QueryConfig.query_for_creating_vehicle_type,
-                (type_id, type_name, price_per_hour)
+                (type_id, type_name, price_per_hour),
+                Config.vehicle_type_registration_successful_prompt + "\n"
             )
-            print(Config.vehicle_type_registration_successful_prompt + "\n")
         
     def update_vehicle_price_per_hour(self) -> None:
         """
@@ -55,9 +55,9 @@ class VehicleType:
             query = QueryConfig.query_for_updating_vehicle_type_detail_from_typeid.format("price_per_hour")
             QueryExecutor.save_data_in_database(
                 query,
-                (new_data, type_id)
+                (new_data, type_id),
+                Config.vehicle_type_details_updation_successful_prompt + "\n"
             )
-            print(Config.vehicle_type_details_updation_successful_prompt + "\n")
 
     def view_vehicle_type(self) -> None:
         """

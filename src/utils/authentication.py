@@ -8,11 +8,11 @@ import logging
 import time
 import maskpass
 
-from config.statements.prompts_config import Config
+from config.statements.config import Config
 from config.query.query_config import QueryConfig
 from controller.admin_controller import AdminController
-from controller.handler.admin_handler import AdminOperations
-from controller.handler.employee_handler import EmployeeOperations
+from controller.handler.admin_handler import AdminHandler
+from controller.handler.employee_handler import EmployeeHandler
 from database.query_executor import QueryExecutor
 from utils.common import Common
 from utils.logs.logs_config import LogConfig
@@ -23,19 +23,17 @@ class Authentication:
     """
         Class for authenticating users and providing role based access as per credentials.
     """
-    # static variable
-    max_login_attempts = 3
-
     def __init__(self) -> None:
         self.common_obj = Common()
+        self.max_login_attempts = Config.maximum_login_attempts
 
     def invalid_login(self) -> None:
         """
             Method to notify the user about invalid attempts and attempts left for login.
         """
         logging.debug(LogConfig.invalid_login_info_prompt)
-        Authentication.max_login_attempts -= 1
-        print(Config.login_attempts_left_prompt.format(Authentication.max_login_attempts) + "\n")
+        self.max_login_attempts -= 1
+        print(Config.login_attempts_left_prompt.format(self.max_login_attempts) + "\n")
 
     def first_login(self, username: str, password: str) -> None:
         """
@@ -59,9 +57,9 @@ class Authentication:
         logging.debug(LogConfig.successful_login_info_prompt)
         print(Config.successful_login_prompt + "\n")      
         if role == "admin":
-            max_login_attempts = AdminOperations.admin_menu()
+            self.max_login_attempts = AdminHandler.admin_menu()
         else:
-            max_login_attempts = EmployeeOperations.employee_menu()
+            self.max_login_attempts = EmployeeHandler.employee_menu()
 
     def login(self) -> None:
         """
@@ -73,9 +71,9 @@ class Authentication:
                 admin_obj = AdminController()
                 admin_obj.register_employee()
 
-            if Authentication.max_login_attempts == 0:
+            if self.max_login_attempts == 0:
                 print(Config.login_attempts_exhausted_prompt + "\n")
-                Authentication.max_login_attempts = 3
+                self.max_login_attempts = 3
                 time.sleep(10)
             else:
                 print("\n" + Config.credential_prompt)

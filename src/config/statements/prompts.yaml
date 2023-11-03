@@ -118,17 +118,19 @@ parking_slot_vacant : Parking slot vacanted successfully...
 print_parking_charges : Your parking charge is {} for {} hours spent in parking...
 
 # query executor module prompts
-error_while_handling_database_requests : |
-  {} error encountered while handling database requests. 
-  Please wait for sometime and try again later...
-some_unexpected_error_occured : |
-  Some unexpected error occured.
-  Please wait for sometime and try again later...
+integrity_error_message : You entered data that already exist. Please enter unique data.
+operational_error_message : Something unexpected happened with the Database. Please try again after some time.
+programming_error_message : Something wrong with the code on backend. Please wait while we resolve the issue.
+general_exception_message : |
+  We are encountering some issue in the backend side. 
+  We will be back soon. 
+  Thank you for waiting...
 
 # prompts for validator
 username_format : Username should be starting with 'user@'
 vehicle_number_format : Vehcile number should be in the format 'MH-02-VD-9874'
 number_input : "{} is expected to be a number. Please enter correct input"
-age_restriction : Age should be less than 60
+age_restriction : Age should be greater than 15 and less than 60
+cannot_create_admin : You cannot create admin. Please enter some other role.
 
 ...

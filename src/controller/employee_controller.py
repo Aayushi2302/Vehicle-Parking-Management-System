@@ -3,7 +3,7 @@
 """
 import shortuuid
 
-from config.statements.prompts_config import Config
+from config.statements.config import Config
 from config.menu.menu_prompts_config import MenuConfig
 from config.query.query_config import QueryConfig
 from database.query_executor import QueryExecutor
@@ -56,9 +56,9 @@ class EmployeeController(SlotBooking):
             type_id = type_id[0][0]
             QueryExecutor.save_data_in_database(
                 QueryConfig.query_for_creating_customer,
-                (cust_id, cust_name, cust_mobile_number, cust_vehicle_number, type_id)
+                (cust_id, cust_name, cust_mobile_number, cust_vehicle_number, type_id),
+                Config.customer_creation_successful_prompt + "\n"
             )
-            print(Config.customer_creation_successful_prompt + "\n")
 
     def update_customer_details(self) -> None:
         """
@@ -119,9 +119,9 @@ class EmployeeController(SlotBooking):
             query_for_updating_customer_data = QueryConfig.query_for_updating_customer_details.format(updated_field)
             QueryExecutor.save_data_in_database(
                 query_for_updating_customer_data,
-                (new_data, customer_id)
+                (new_data, customer_id),
+                Config.customer_updation_successful_prompt + "\n"
             )
-            print(Config.customer_updation_successful_prompt + "\n")
     
     def view_customer_details(self) -> None:
         """

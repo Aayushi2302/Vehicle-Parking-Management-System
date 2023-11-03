@@ -25,6 +25,4 @@ successful_slot_booking_table_creation_info : slot_booking table created success
 # validatior logs
 invalid_input_exception_info : Invalid input by user.
 
-#helpers logs
-password_changed_successful_info : Password changed successfully.
 ...

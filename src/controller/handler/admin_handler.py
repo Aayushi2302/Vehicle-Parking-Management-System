@@ -3,7 +3,7 @@
 """
 import logging
 
-from config.statements.prompts_config import Config
+from config.statements.config import Config
 from config.menu.menu_prompts_config import MenuConfig
 from controller.admin_controller import AdminController
 from parking_manager.parking_status import ParkingStatus
@@ -11,7 +11,7 @@ from utils.common import Common
 
 logger = logging.getLogger('admin_handler')
 
-class AdminOperations(ParkingStatus):
+class AdminHandler(ParkingStatus):
     """
         Class for performing admin menu related interactions.
     """
@@ -84,11 +84,11 @@ class AdminOperations(ParkingStatus):
                                 see_status_choice = int(input(Config.enter_choice_prompt))
                                 match see_status_choice:
                                     case 1:
-                                        AdminOperations.view_current_date_status()
+                                        AdminHandler.view_current_date_status()
                                     case 2:
-                                        AdminOperations.view_current_year_status()
+                                        AdminHandler.view_current_year_status()
                                     case 3:
-                                        AdminOperations.view_total_vehicle_entries()
+                                        AdminHandler.view_total_vehicle_entries()
                                     case 4:
                                         break
                                     case _ :

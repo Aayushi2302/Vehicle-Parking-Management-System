@@ -5,7 +5,7 @@ import random
 import string
 import shortuuid
 
-from config.statements.prompts_config import Config
+from config.statements.config import Config
 from config.query.query_config import QueryConfig
 from controller.handler.employee_update_handler import employee_details_update_menu
 from database.query_executor import QueryExecutor
@@ -50,13 +50,14 @@ class AdminController(VehicleType, ParkingSlot):
             else:
                 QueryExecutor.save_data_in_database(
                     QueryConfig.query_for_creating_employee_credentials,
-                    (emp_id, emp_username, emp_password, emp_role)
+                    (emp_id, emp_username, emp_password, emp_role),
+                    ""
                 )
                 QueryExecutor.save_data_in_database(
                     QueryConfig.query_for_creating_employee_details,
-                    (emp_id, emp_name, emp_age, emp_gender, emp_mobile_number, emp_email_address)
+                    (emp_id, emp_name, emp_age, emp_gender, emp_mobile_number, emp_email_address),
+                    Config.employee_registration_successful_prompt + "\n"
                 )
-                print(Config.employee_registration_successful_prompt + "\n")
 
     def update_employee_details(self) -> None:
         """
@@ -125,6 +126,6 @@ class AdminController(VehicleType, ParkingSlot):
             query = QueryConfig.query_for_updating_detail_of_employee.format("status")
             QueryExecutor.save_data_in_database(
                 query,
-                ("inactive", emp_id )
+                ("inactive", emp_id ),
+                Config.employee_removal_successful_prompt + "\n"
             )
-            print(Config.employee_removal_successful_prompt + "\n")

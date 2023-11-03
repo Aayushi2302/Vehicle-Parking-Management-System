@@ -9,7 +9,7 @@ import pytz
 import maskpass
 from tabulate import tabulate
 
-from config.statements.prompts_config import Config
+from config.statements.config import Config
 from config.query.query_config import QueryConfig
 from database.query_executor import QueryExecutor
 from utils.validator.user_input_validation import UserInputValidation
@@ -65,10 +65,9 @@ class Common:
                 hashed_password = hashlib.sha256(confirm_password.encode('utf-8')).hexdigest()
                 QueryExecutor.save_data_in_database(
                     QueryConfig.query_for_updating_default_password,
-                    (hashed_password, "permanent", username)
+                    (hashed_password, "permanent", username),
+                    Config.password_change_successful_prompt + "\n"
                 )
-                print(Config.password_change_successful_prompt + "\n")
-                logger.info(LogConfig.password_changed_successful_info_prompt)
                 return
 
     def view_emp_details(self) -> None:

@@ -4,7 +4,7 @@
 """
 import logging
 
-from config.statements.prompts_config import Config
+from config.statements.config import Config
 from config.menu.menu_prompts_config import MenuConfig
 from config.query.query_config import QueryConfig
 from database.query_executor import QueryExecutor

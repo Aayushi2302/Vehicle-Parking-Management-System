@@ -4,7 +4,7 @@
 from datetime import datetime
 import pytz
 
-from config.statements.prompts_config import Config
+from config.statements.config import Config
 from config.query.query_config import QueryConfig
 from database.query_executor import QueryExecutor
 from parking_manager.slot_booking import SlotBooking
