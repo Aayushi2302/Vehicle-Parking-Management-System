@@ -1,6 +1,6 @@
 # Project Title : Vehicle Parking Management System
 
-# The major modules of this project will be :
+The major modules of this project are :
 
 1. Authentication
     - Max. login attempts
