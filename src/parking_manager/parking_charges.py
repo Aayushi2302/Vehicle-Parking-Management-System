@@ -64,6 +64,7 @@ class ParkingCharges:
         else:
             price_per_hour = price_per_hour[0][0]
             total_charges = hours_spent * price_per_hour
+            total_charges = round(total_charges, 2)
             return total_charges
 
     @staticmethod

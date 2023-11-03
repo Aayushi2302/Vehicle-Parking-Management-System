@@ -89,10 +89,10 @@ class AdminController(VehicleType, ParkingSlot):
                     QueryConfig.query_for_fetching_empid_status_from_email,
                     (emp_email, )
                 )
-        emp_id = emp_id[0][0]
         if not emp_id:
             print(Config.details_does_not_exist_prompt.format(emp_email) + "\n")
         else:
+            emp_id = emp_id[0][0]
             data =  QueryExecutor.fetch_data_from_database(
                         QueryConfig.query_for_fetching_default_password_from_empid,
                         (emp_id, )
