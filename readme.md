@@ -7,7 +7,7 @@
     - First login
     - Invalid login
     - Login
-    - Role based access : Confused whether to put in main or authentication !!
+    - Role based access 
 
 2. Admin
     - Register employee
@@ -42,7 +42,7 @@
     - View booking details
     - View parking charges for vehicle type
     
-4. Parking slot : 
+4. Parking slot  
     - register a parking slot
     - update a parking slot
     - view parking slot
@@ -53,7 +53,7 @@
     - Vacant a slot
     - View booking details
 
-6. Vehicle Type : This will be inherited by Admin
+6. Vehicle Type 
     - Add or activate a parking slot
     - Deactivate parking slot
     - View parking slot detials
