@@ -73,7 +73,6 @@ class Common:
     def view_emp_details(self) -> None:
         """
             Method to display a particular user details.
-            TODO :apply a check that the detail that user is viewing is of the employee who has loggedin
         """
         emp_email = UserInputValidation.input_email_address()
         data =  QueryExecutor.fetch_data_from_database(
