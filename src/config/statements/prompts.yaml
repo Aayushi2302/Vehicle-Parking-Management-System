@@ -1,63 +1,70 @@
 # This file contains all the prompts of the of print and input statements used in the project
 ---
-# main module prompts
+# file paths
 database_path : src\\database\\parking_management.db
-logs_file_path : src\\utils\\logs\\logs.txt
+logs_file_path : src\\logs\\logs.txt
+
+# app module prompts
 welcome_message : ----Welcome to Vehicle Parking Management System----
+exit_message : ----Thank you for using the system. Hope you had a great experience----
 
 # common prompts
-name_input : "Name : "
-mobile_number_input : "Mobile No. : "
-zero_record : 0 records found in {} table. Please enter some records!
-cannot_perform_updation : Cannot perform updation. Enter correct data.
 maximum_login_attempts : 3
+enter_choice : "Enter your choice (in integer) : " 
+invalid_input : Invalid input...Try again
+input_username : "Username : "
+input_name : "Name : "
+input_mobile_number : "Mobile No. : "
+zero_record : 0 records found in {} table. Please enter some records!
+details_does_not_exist : "{} does not exist..."
+new_detail_input : Enter new {}...
+successful_logout : Logout of the system successful...
+cannot_perform_updation : Cannot perform updation. Enter correct data.
 
 # authentication module prompts
 input_credential : "Enter your credentials : "
-input_username : "Username : "
-user_not_exist : "{} does not exist. Try Again!"
-user_already_exist : "{} already exist. Try Again!"
-input_default_password : "Default Password : "
+input_password : "Password : "
+successful_login : Login Successful...
+login_attempts_left : |
+  Invalid login...
+  Login attempts left : {}
+login_attempts_exhausted : Login attempts exhausted! Please login after some time...
 change_password : Change your password...
 input_new_password : "New Password : "
 input_confirm_password : "Confirm Password : "
 password_not_match : Password does not match. Please enter your password again!
 password_change_successful : Password changed successfully! Now login with your new password...
-wrong_password : Wrong password... Try Again!
-login_attempts_left : |
-  Invalid login...
-  Login attempts left : {}
-login_attempts_exhausted : Login attempts exhausted! Please login after some time...
-input_password : "Password : "
-successful_login : Login Successful...
-no_record_in_authentication_table : No record found in authentication table. Please enter some records...
 
-# admin module prompts
+# admin_controller module prompts
+input_employee_details : Enter employee details...
+input_employee_age : "Age : "
+input_employee_gender : "Enter F for Female and M for Male : "
+input_employee_role : "Enter role : "
+input_employee_email: "Email Address : "
+user_already_exist : "{} already exist. Try Again!"
+employee_registration_successful : Employee registered successfully...
+no_default_password : No default password exist...Password has been already changed
+print_default_password : The default password for given employee is {}
+input_details_for_removal : Enter below detail to remove record...
+update_details_for_inactive_status : Cannot update details for given record as the record is not active...
+employee_removal_successful : Employee removed successfully...
+input_details_for_updation : Enter below detail to update record...
+employee_updation_successful : Employee details updated successfully...
 create_user_credentials : Create user credentials...
 not_valid_username : Please enter a valid username
-input_role : "Enter role : "
 not_valid_role : Please enter a valid role
-enter_choice : "Enter your choice (in integer) : " 
-invalid_input : Invalid input...Try again
-successful_logout : Logout of the system successful...
-employee_details_input : Enter employee details...
-employee_name_input : "Name : "
-employee_age_input : "Age : "
-employee_gender_input : "Enter F for Female and M for Male : "
+
+# employee_name_input : "Name : "
 employee_mobile_no_input : "Mobile No. : "
-employee_email_input : "Email Address : "
-details_does_not_exist : "{} does not exist..."
-print_default_password : The default password for given employee is {}
-no_default_password : No default password exist...Password has been already changed.
-employee_removal_successful : Employee removed successfully...
-update_details_for_inactive_status : Cannot update details for given record as the record is not active...
-enter_details_for_updation : Enter below detail to update record...
 details_for_given_employee : "The details for given employee with emp_id : {} are..."
-new_detail_input : Enter new {}...
-employee_updation_successful : Employee details updated successfully...
-employee_registration_successful : Employee registered successfully...
-enter_details_for_removal : Enter below detail to remove record...
 cannot_input_past_date : You entered a date that has been already passed. Please enter a valid date for out_date.
+
+# prompts for validator
+username_format : Username should be starting with 'user@'
+cannot_create_admin : You cannot create admin. Please enter some other role
+age_restriction : Age should be greater than 15 and less than 60
+number_input : "{} is expected to be a number. Please enter correct input"
+vehicle_number_format : Vehcile number should be in the format 'MH-02-VD-9874'
 
 # helpers module prompts
 strong_password_requirements : |
@@ -95,7 +102,7 @@ parking_slot_already_vacant : Parking slot is already vacant. Please enter corre
 parking_slot_inactive : Parking slot is inactive. Cannot update status.
 parking_slot_deleted :  Parking slot is deleted. Cannot update status.
 
-# customer module prompts
+# employee_controller module prompts
 customer_details_input : Enter customer details...
 vehicle_number_input : "Vehicle No. : "
 customer_creation_successful : Customer registered successfully...
@@ -125,12 +132,4 @@ general_exception_message : |
   We are encountering some issue in the backend side. 
   We will be back soon. 
   Thank you for waiting...
-
-# prompts for validator
-username_format : Username should be starting with 'user@'
-vehicle_number_format : Vehcile number should be in the format 'MH-02-VD-9874'
-number_input : "{} is expected to be a number. Please enter correct input"
-age_restriction : Age should be greater than 15 and less than 60
-cannot_create_admin : You cannot create admin. Please enter some other role.
-
 ...

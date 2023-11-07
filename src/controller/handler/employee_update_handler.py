@@ -12,14 +12,14 @@ from utils.validator.user_input_validation import UserInputValidation
 logger = logging.getLogger('employee_update_handler')
 
 @staticmethod
-def employee_details_update_menu():
+def employee_details_update_menu() -> None:
     """
         Method for updating employee details.
     """
-    print("\n" + Config.enter_details_for_updation_prompt + "\n")
+    print("\n" + Config.input_details_for_updation_prompt + "\n")
     emp_email = UserInputValidation.input_email_address()
     data =  QueryExecutor.fetch_data_from_database(
-                QueryConfig.query_for_fetching_empid_status_from_email,
+                QueryConfig.query_for_fetching_emp_id_and_status_from_email,
                 (emp_email, )
             )
     if not any(data):
@@ -68,9 +68,9 @@ def employee_details_update_menu():
                     case _:
                         print(Config.invalid_input_prompt)
                 if updated_field in ("role", "username"):
-                    query = QueryConfig.query_for_updating_credential_of_employee.format(updated_field)
+                    query = QueryConfig.query_for_updating_employee_credential_from_emp_id.format(updated_field)
                 else:
-                    query = QueryConfig.query_for_updating_detail_of_employee.format(updated_field)
+                    query = QueryConfig.query_for_updating_employee_detail_from_emp_id.format(updated_field)
 
                 QueryExecutor.save_data_in_database(
                     query,

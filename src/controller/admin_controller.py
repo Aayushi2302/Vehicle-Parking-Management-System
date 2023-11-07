@@ -23,7 +23,7 @@ class AdminController(VehicleType, ParkingSlot):
         """
             Method to register employee and save their data to database.
         """
-        print(Config.employee_details_input_prompt + "\n")
+        print(Config.input_employee_details_prompt + "\n")
         emp_id = "EMP" + shortuuid.ShortUUID().random(length = 5)
         emp_name = UserInputValidation.input_name()
         emp_username = UserInputValidation.input_username()
@@ -42,7 +42,7 @@ class AdminController(VehicleType, ParkingSlot):
             emp_mobile_number = UserInputValidation.input_mobile_number()
             emp_email_address = UserInputValidation.input_email_address()
             data =  QueryExecutor.fetch_data_from_database(
-                        QueryConfig.query_for_fetching_empid_status_from_email,
+                        QueryConfig.query_for_fetching_emp_id_and_status_from_email,
                         (emp_email_address, )
                     )
             if any(data):
@@ -71,13 +71,13 @@ class AdminController(VehicleType, ParkingSlot):
             Method to display employee details.
         """
         data =  QueryExecutor.fetch_data_from_database(
-                    QueryConfig.query_for_viewing_employee_details
+                    QueryConfig.query_for_viewing_employee_detail
                 )
         if not any(data):
             print(Config.zero_record_prompt.format("employee"))
         else:
             common_obj = Common()
-            headers = ["EMP ID", "Name", "Age", "Gender", "Mobile No", "Email Address", "Username", "Role", "Status"]
+            headers = QueryConfig.employee_detail_header
             common_obj.display_table(data, headers)
 
     def view_default_password_for_employee(self) -> None:
@@ -86,7 +86,7 @@ class AdminController(VehicleType, ParkingSlot):
         """
         emp_email = UserInputValidation.input_email_address()
         emp_id = QueryExecutor.fetch_data_from_database(
-                    QueryConfig.query_for_fetching_empid_status_from_email,
+                    QueryConfig.query_for_fetching_emp_id_and_status_from_email,
                     (emp_email, )
                 )
         if not emp_id:
@@ -94,7 +94,7 @@ class AdminController(VehicleType, ParkingSlot):
         else:
             emp_id = emp_id[0][0]
             data =  QueryExecutor.fetch_data_from_database(
-                        QueryConfig.query_for_fetching_default_password_from_empid,
+                        QueryConfig.query_for_fetching_default_password_from_emp_id,
                         (emp_id, )
                     )
             password_type = data[0][0]
@@ -109,21 +109,21 @@ class AdminController(VehicleType, ParkingSlot):
             Method to remove or inactivate the employee.
         """
         self.view_employee_details()
-        print("\n" + Config.enter_details_for_removal_prompt + "\n")
+        print("\n" + Config.input_details_for_removal_prompt + "\n")
         emp_email = UserInputValidation.input_email_address()
         data =  QueryExecutor.fetch_data_from_database(
-                    QueryConfig.query_for_fetching_empid_status_from_email,
+                    QueryConfig.query_for_fetching_emp_id_and_status_from_email,
                     (emp_email, )
                 )
         if not any(data):
-            print(Config.user_not_exist_prompt.format(emp_email) + "\n")
+            print(Config.details_does_not_exist_prompt.format(emp_email) + "\n")
             return
         emp_id = data[0][0]
         status = data[0][1]
         if status == "inactive":
             print(Config.updating_details_for_inactive_status_prompt)
         else:
-            query = QueryConfig.query_for_updating_detail_of_employee.format("status")
+            query = QueryConfig.query_for_updating_employee_detail_from_emp_id.format("status")
             QueryExecutor.save_data_in_database(
                 query,
                 ("inactive", emp_id ),

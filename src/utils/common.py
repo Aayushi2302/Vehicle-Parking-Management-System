@@ -13,7 +13,7 @@ from config.statements.config import Config
 from config.query.query_config import QueryConfig
 from database.query_executor import QueryExecutor
 from utils.validator.user_input_validation import UserInputValidation
-from utils.logs.logs_config import LogConfig
+from logs.logs_config import LogConfig
 
 logger = logging.getLogger('common')
 
@@ -77,7 +77,7 @@ class Common:
         """
         emp_email = UserInputValidation.input_email_address()
         data =  QueryExecutor.fetch_data_from_database(
-                    QueryConfig.query_for_fetching_empid_status_from_email,
+                    QueryConfig.query_for_fetching_emp_id_and_status_from_email,
                     (emp_email, )
                 )
         if not any(data):
@@ -86,19 +86,10 @@ class Common:
             emp_id = data[0][0]
             print(Config.details_for_given_employee_prompt.format(emp_id))
             data =  QueryExecutor.fetch_data_from_database(
-                        QueryConfig.query_for_viewing_single_employee_details,
+                        QueryConfig.query_for_viewing_single_employee_detail,
                         (emp_id, )
                     )
-            headers = [
-                        "Employee ID", 
-                        "Name", "Age", 
-                        "Gender", 
-                        "Mobile No", 
-                        "Email Address", 
-                        "Username", 
-                        "Role", 
-                        "Status"
-                    ]
+            headers = QueryConfig.employee_detail_header
             self.display_table(data, headers)
 
     def display_table(self, data: list, headers: list) -> None:

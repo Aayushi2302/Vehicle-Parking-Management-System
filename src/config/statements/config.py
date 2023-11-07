@@ -14,63 +14,72 @@ class Config:
         with open(FILE_PATH, 'r') as file:
             data = yaml.safe_load(file)
 
-        # main module prompts
+        # file paths
         cls.database_path = data["database_path"]
         cls.logs_file_path = data["logs_file_path"]
+
+        # app module prompts
         cls.welcome_message = data["welcome_message"]
+        cls.exit_message = data["exit_message"]
 
         # common prompts
-        cls.name_input_prompt = data["name_input"]
-        cls.mobile_number_prompt = data["mobile_number_input"]
-        cls.zero_record_prompt = data["zero_record"]
-        cls.cannot_perform_updation_prompt = data["cannot_perform_updation"]
         cls.maximum_login_attempts = data["maximum_login_attempts"]
-
+        cls.enter_choice_prompt = data["enter_choice"]
+        cls.invalid_input_prompt = data["invalid_input"]
+        cls.input_username_prompt = data["input_username"]
+        cls.input_name_prompt = data["input_name"]
+        cls.iput_mobile_number_prompt = data["input_mobile_number"]
+        cls.zero_record_prompt = data["zero_record"]
+        cls.details_does_not_exist_prompt = data["details_does_not_exist"]
+        cls.new_detail_input_prompt = data["new_detail_input"]
+        cls.successful_logout_prompt = data["successful_logout"]
+        cls.cannot_perform_updation_prompt = data["cannot_perform_updation"]
+    
         # authentication module prompts
-        cls.credential_prompt = data["input_credential"]
-        cls.username_prompt = data["input_username"]
-        cls.user_not_exist_prompt = data["user_not_exist"]
-        cls.user_already_exist_prompt = data["user_already_exist"]
-        cls.default_password_prompt = data["input_default_password"]
+        cls.input_credential_prompt = data["input_credential"]
+        cls.input_password_prompt = data["input_password"]
+        cls.successful_login_prompt = data["successful_login"]
+        cls.login_attempts_left_prompt = data["login_attempts_left"]
+        cls.login_attempts_exhausted_prompt = data["login_attempts_exhausted"]
+        
+        # cls.default_password_prompt = data["input_default_password"]
         cls.change_password_prompt = data["change_password"]
         cls.new_password_prompt = data["input_new_password"]
         cls.confirm_password_prompt = data["input_confirm_password"]
         cls.password_not_match_prompt = data["password_not_match"]
         cls.password_change_successful_prompt = data["password_change_successful"]
-        cls.wrong_password_prompt = data["wrong_password"]
-        cls.login_attempts_left_prompt = data["login_attempts_left"]
-        cls.login_attempts_exhausted_prompt = data["login_attempts_exhausted"]
-        cls.password_prompt = data["input_password"]
-        cls.successful_login_prompt = data["successful_login"]
-        cls.no_records_in_authentication_table_prompt = data["no_record_in_authentication_table"]
+    
+        # admin module prompts
+        cls.input_employee_details_prompt = data["input_employee_details"]
+        cls.input_employee_age_prompt = data["input_employee_age"]
+        cls.input_employee_gender_prompt = data["input_employee_gender"]
+        cls.input_employee_role_prompt = data["input_employee_role"]
+        cls.input_employee_email_prompt = data["input_employee_email"]
+        cls.user_already_exist_prompt = data["user_already_exist"]
+        cls.employee_registration_successful_prompt = data["employee_registration_successful"]
         cls.print_default_password_prompt = data["print_default_password"]
         cls.no_default_password_prompt = data["no_default_password"]
-        
-        # admin module prompts
+        cls.input_details_for_removal_prompt = data["input_details_for_removal"]
+        cls.updating_details_for_inactive_status_prompt = data["update_details_for_inactive_status"]
+        cls.employee_removal_successful_prompt = data["employee_removal_successful"]
+        cls.input_details_for_updation_prompt = data["input_details_for_updation"]
+        cls.employee_updation_successful_prompt = data["employee_updation_successful"]
         cls.create_user_credentials_prompt = data["create_user_credentials"]
         cls.not_valid_username_prompt = data["not_valid_username"]
-        cls.role_prompt = data["input_role"]
         cls.not_valid_role_prompt = data["not_valid_role"]
-        cls.enter_choice_prompt = data["enter_choice"]
-        cls.invalid_input_prompt = data["invalid_input"]
-        cls.successful_logout_prompt = data["successful_logout"]
-        cls.employee_details_input_prompt = data["employee_details_input"]
-        cls.employee_name_input_prompt = data["employee_name_input"]
-        cls.employee_age_input_prompt = data["employee_age_input"]
-        cls.employee_gender_input_prompt = data["employee_gender_input"]
+        
+        # cls.employee_name_input_prompt = data["employee_name_input"]
         cls.employee_mobile_no_input_prompt = data["employee_mobile_no_input"]
-        cls.employee_email_input_prompt = data["employee_email_input"]
-        cls.details_does_not_exist_prompt = data["details_does_not_exist"]
-        cls.updating_details_for_inactive_status_prompt = data["update_details_for_inactive_status"]
         cls.details_for_given_employee_prompt = data["details_for_given_employee"]
-        cls.new_detail_input_prompt = data["new_detail_input"]
-        cls.employee_removal_successful_prompt = data["employee_removal_successful"]
-        cls.employee_updation_successful_prompt = data["employee_updation_successful"]
-        cls.employee_registration_successful_prompt = data["employee_registration_successful"]
-        cls.enter_details_for_updation_prompt = data["enter_details_for_updation"]
-        cls.enter_details_for_removal_prompt = data["enter_details_for_removal"]
         cls.cannot_input_past_date = data["cannot_input_past_date"]
 
+        # validator prompts
+        cls.username_format_prompt = data["username_format"]
+        cls.cannot_create_admin_prompt = data["cannot_create_admin"]
+        cls.age_restriction_prompt = data["age_restriction"]
+        cls.number_input_prompt = data["number_input"]
+        cls.vehicle_number_foramt_prompt = data["vehicle_number_format"]
+        
         # helpers module prompts
         cls.strong_password_requirements_prompt = data["strong_password_requirements"]
         cls.weak_password_input_prompt = data["weak_password_input"]
@@ -129,9 +138,4 @@ class Config:
         cls.programming_error_message_prompt = data["programming_error_message"]
         cls.general_exception_message_prompt = data["general_exception_message"]
 
-        # validator prompts
-        cls.username_format_prompt = data["username_format"]
-        cls.vehicle_number_foramt_prompt = data["vehicle_number_format"]
-        cls.number_input_prompt = data["number_input"]
-        cls.age_restriction_prompt = data["age_restriction"]
-        cls.cannot_create_admin = data["cannot_create_admin"]
+        

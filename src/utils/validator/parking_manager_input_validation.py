@@ -6,7 +6,7 @@ import logging
 import re
 
 from config.statements.config import Config
-from utils.logs.logs_config import LogConfig
+from logs.logs_config import LogConfig
 
 TYPE_ID_REGEX = r"^TYPE[a-zA-Z0-9]+$"
 STRING_REGEX = r"^[a-zA-Z]+\s*"
@@ -53,7 +53,7 @@ class ParkingManagerInputValidation:
             validation of vehicle_type name using regular expression
         """
         while True:
-            type_name = input(Config.input_type_name_prompt)
+            type_name = input(Config.input_type_name_prompt).strip()
             check = input_validation(STRING_REGEX, type_name)
             if check:
                 return type_name.title()
@@ -77,7 +77,7 @@ class ParkingManagerInputValidation:
             validation of vehicle_type id using regular expression
         """
         while True:
-            type_id = input(Config.input_type_id_prompt)
+            type_id = input(Config.input_type_id_prompt).strip()
             check = input_validation(TYPE_ID_REGEX, type_id)
             if check:
                 return type_id
@@ -88,7 +88,7 @@ class ParkingManagerInputValidation:
             validation of parking_slot no using regular expression
         """
         while True:
-            parking_slot_no = input(Config.input_parking_slot_number_prompt)
+            parking_slot_no = input(Config.input_parking_slot_number_prompt).strip()
             check = input_validation(PARKING_SLOT_NUMBER_REGEX, parking_slot_no)
             if check:
                 return parking_slot_no.upper()
@@ -100,7 +100,7 @@ class ParkingManagerInputValidation:
         """
         while True:
             print(Config.vehicle_number_foramt_prompt + "\n")
-            vehicle_number = input(Config.vehicle_number_input_prompt)
+            vehicle_number = input(Config.vehicle_number_input_prompt).strip()
             check = input_validation(VEHICLE_NUMBER_REGEX, vehicle_number)
             if check:
                 return vehicle_number
@@ -111,7 +111,7 @@ class ParkingManagerInputValidation:
             validation of out_date using regular expression
         """
         while True:
-            out_date = input(Config.customer_out_date_input_prompt)
+            out_date = input(Config.customer_out_date_input_prompt).strip()
             present = datetime.now()
             try:
                 out_date = datetime.strptime(out_date, "%d-%m-%Y")

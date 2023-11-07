@@ -9,7 +9,7 @@ from config.menu.menu_prompts_config import MenuConfig
 from config.query.query_config import QueryConfig
 from database.query_executor import QueryExecutor
 from utils.authentication import Authentication
-from utils.logs.logs_config import LogConfig
+from logs.logs_config import LogConfig
 
 # loading config files for queries and prompts
 Config.load()

@@ -30,21 +30,7 @@ class ParkingStatus:
             print(Config.zero_record_prompt.format("booking") + "\n")
         else:
             common_obj = Common()
-            headers = [
-                        "Customer ID", 
-                        "Name", 
-                        "Mobile No", 
-                        "Vehicle No", 
-                        "Vehicle Type Name", 
-                        "Booking ID", 
-                        "Parking Slot No", 
-                        "In Date", 
-                        "In Time", 
-                        "Out Date", 
-                        "Out Time", 
-                        "Hours", 
-                        "Charges"
-                    ]
+            headers = QueryConfig.slot_booking_detail_header
             common_obj.display_table(data, headers)
             
     @staticmethod
@@ -64,21 +50,7 @@ class ParkingStatus:
             print(Config.zero_record_prompt.format("booking") + "\n")
         else:
             common_obj = Common()
-            headers = [
-                        "Customer ID", 
-                        "Name", 
-                        "Mobile No", 
-                        "Vehicle No", 
-                        "Vehicle Type Name", 
-                        "Booking ID", 
-                        "Parking Slot No", 
-                        "In Date", 
-                        "In Time", 
-                        "Out Date", 
-                        "Out Time", 
-                        "Hours", 
-                        "Charges"
-                    ]
+            headers = QueryConfig.slot_booking_detail_header
             common_obj.display_table(data, headers)
 
     @staticmethod

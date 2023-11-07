@@ -9,7 +9,7 @@ from sqlite3 import ProgrammingError
 from config.statements.config import Config
 from config.query.query_config import QueryConfig
 from database.db_connector import DatabaseConnection
-from utils.logs.logs_config import LogConfig
+from logs.logs_config import LogConfig
 
 logger = logging.getLogger('query_executor')
 

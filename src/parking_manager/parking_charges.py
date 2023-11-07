@@ -55,7 +55,7 @@ class ParkingCharges:
                     )
         type_id = type_id[0][0]
         price_per_hour = QueryExecutor.fetch_data_from_database(
-                            QueryConfig.query_for_fetching_price_per_hour_with_typeid,
+                            QueryConfig.query_for_fetching_price_per_hour_from_type_id,
                             (type_id, )
                         )
         if not any(price_per_hour):

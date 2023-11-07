@@ -1,7 +1,7 @@
 # third party imports
 import yaml
 
-FILE_PATH = 'src\\utils\\logs\\logging_prompts.yaml'
+FILE_PATH = 'src\\logs\\logging_prompts.yaml'
 
 class LogConfig:
     @classmethod

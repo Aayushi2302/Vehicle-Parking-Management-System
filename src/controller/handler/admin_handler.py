@@ -79,7 +79,7 @@ class AdminHandler(ParkingStatus):
                                 print(Config.invalid_input_prompt + "\n")
                     case 8 :
                         while True:
-                            print("\n" + MenuConfig.view_parking_status_prompt + "\n")
+                            print("\n" + MenuConfig.view_parking_status_menu_prompt + "\n")
                             try:
                                 see_status_choice = int(input(Config.enter_choice_prompt))
                                 match see_status_choice:

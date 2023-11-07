@@ -16,9 +16,8 @@ class MenuConfig:
             
         cls.admin_menu_prompt = data["admin_menu"]
         cls.employee_detail_update_menu_prompt = data["employee_detail_update_menu"]
-        cls.vehicle_type_update_menu_prompt = data["vehicle_type_update_menu"]
         cls.vehicle_type_manage_menu_prompt = data["vehicle_type_manage_menu"]
         cls.parking_slot_manage_menu_prompt = data["parking_slot_manage_menu"]
         cls.employee_menu_prompt = data["employee_menu"]
-        cls.view_parking_status_prompt = data["view_parking_status_menu"]
+        cls.view_parking_status_menu_prompt = data["view_parking_status_menu"]
         cls.customer_detail_update_menu_prompt = data["customer_detail_update_menu"]

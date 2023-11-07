@@ -17,13 +17,13 @@ class ParkingSlot:
         """
         parking_slot_number = ParkingManagerInputValidation.input_parking_slot_number()
         parking_slot_data = QueryExecutor.fetch_data_from_database(
-                                QueryConfig.query_for_fetching_data_with_parking_slot_no,
+                                QueryConfig.query_for_fetching_parking_slot_detail_from_parking_slot_no,
                                 (parking_slot_number, )
                             )
         if not any(parking_slot_data):
             vehicle_type_name = ParkingManagerInputValidation.input_vehicle_type_name()
             vehicle_type_data =  QueryExecutor.fetch_data_from_database(
-                                    QueryConfig.query_for_fetching_vehicle_type_typeid_from_typename,
+                                    QueryConfig.query_for_fetching_vehicle_type_type_id_from_type_name,
                                     (vehicle_type_name, )
                                 )
             if not any(vehicle_type_data):
@@ -42,7 +42,7 @@ class ParkingSlot:
                 print(Config.parking_slot_number_already_exist_prompt + "\n")
                 return
             else:
-                query_for_updating_parking_slot_status = QueryConfig.query_for_updating_parking_slot_detail_with_parking_slot_no.format("status")
+                query_for_updating_parking_slot_status = QueryConfig.query_for_updating_parking_slot_detail_from_parking_slot_no.format("status")
                 QueryExecutor.save_data_in_database(
                     query_for_updating_parking_slot_status,
                     ("vacant", parking_slot_number),
@@ -54,10 +54,10 @@ class ParkingSlot:
             Method to deactivate aprking slot.
         """
         self.view_parking_slot()
-        print("\n" + Config.enter_details_for_updation_prompt + "\n")
+        print("\n" + Config.input_details_for_updation_prompt + "\n")
         parking_slot_number = ParkingManagerInputValidation.input_parking_slot_number()
         data =  QueryExecutor.fetch_data_from_database(
-                    QueryConfig.query_for_fetching_data_with_parking_slot_no,
+                    QueryConfig.query_for_fetching_parking_slot_detail_from_parking_slot_no,
                     (parking_slot_number, )
                 )
         if not any(data):
@@ -67,7 +67,7 @@ class ParkingSlot:
         if status == "inactive":
             print(Config.updating_details_for_inactive_status_prompt + "\n")
         else:
-            query_for_updating_parking_slot_status = QueryConfig.query_for_updating_parking_slot_detail_with_parking_slot_no.format("status")
+            query_for_updating_parking_slot_status = QueryConfig.query_for_updating_parking_slot_detail_from_parking_slot_no.format("status")
             QueryExecutor.save_data_in_database(
                 query_for_updating_parking_slot_status,
                 ("inactive", parking_slot_number),
@@ -79,13 +79,13 @@ class ParkingSlot:
             Method to view parking slot details.
         """
         data =  QueryExecutor.fetch_data_from_database(
-                    QueryConfig.query_for_viewing_parking_slot
+                    QueryConfig.query_for_viewing_parking_slot_detail
                 )
         if not any(data):
             print(Config.zero_record_prompt.format("parking_slot"))
         else:
             common_obj = Common()
-            headers = ["Parking Slot No.", "Vehicle Type", "status"]
+            headers = QueryConfig.parking_slot_detail_header
             common_obj.display_table(data, headers)
 
     def remove_parking_slot(self) -> None:
@@ -93,16 +93,16 @@ class ParkingSlot:
             Method to remove parking slot.
         """
         self.view_parking_slot()
-        print("\n" + Config.enter_details_for_updation_prompt + "\n")
+        print("\n" + Config.input_details_for_updation_prompt + "\n")
         parking_slot_number = ParkingManagerInputValidation.input_parking_slot_number()
         data =  QueryExecutor.fetch_data_from_database(
-                    QueryConfig.query_for_fetching_data_with_parking_slot_no,
+                    QueryConfig.query_for_fetching_parking_slot_detail_from_parking_slot_no,
                     (parking_slot_number, )
                 )
         if not any(data):
             print(Config.parking_slot_number_does_not_exist_prompt + "\n")
             return
-        query_for_deleting_parking_slot = QueryConfig.query_for_updating_parking_slot_detail_with_parking_slot_no.format("status")
+        query_for_deleting_parking_slot = QueryConfig.query_for_updating_parking_slot_detail_from_parking_slot_no.format("status")
         QueryExecutor.save_data_in_database(
             query_for_deleting_parking_slot,
             ("deleted", parking_slot_number, ),

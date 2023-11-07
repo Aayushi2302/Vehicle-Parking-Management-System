@@ -23,7 +23,7 @@ class SlotBooking(ParkingCharges):
         booking_id = "BOOK" + shortuuid.ShortUUID().random(length = 5)
         cust_vehicle_no = ParkingManagerInputValidation.input_vehicle_number()
         data =  QueryExecutor.fetch_data_from_database(
-                    QueryConfig.query_for_fetching_customerid_and_typeid_from_vehicleno,
+                    QueryConfig.query_for_fetching_customer_id_and_type_id_from_vehicle_no,
                     (cust_vehicle_no, )
                 )
         if not any(data):
@@ -48,7 +48,7 @@ class SlotBooking(ParkingCharges):
                 (booking_id, customer_id, booking_parking_slot_no, cust_in_date, cust_in_time, cust_out_date),
                 ""
             )
-            query_for_updating_parking_slot_status = QueryConfig.query_for_updating_parking_slot_detail_with_parking_slot_no.format("status")
+            query_for_updating_parking_slot_status = QueryConfig.query_for_updating_parking_slot_detail_from_parking_slot_no.format("status")
             QueryExecutor.save_data_in_database(
                 query_for_updating_parking_slot_status,
                 ("booked", booking_parking_slot_no),
@@ -60,27 +60,13 @@ class SlotBooking(ParkingCharges):
             Method to view booking details.
         """
         data =  QueryExecutor.fetch_data_from_database(
-                    QueryConfig.query_for_viewing_slot_booking_details
+                    QueryConfig.query_for_viewing_slot_booking_detail
                 )
         if not any(data):
             print(Config.zero_record_prompt.format("slot_booking"))
         else:
             common_obj = Common()
-            headers = [
-                        "Customer ID", 
-                        "Name", 
-                        "Mobile No", 
-                        "Vehicle No", 
-                        "Vehicle Type Name", 
-                        "Booking ID", 
-                        "Parking Slot No", 
-                        "In Date", 
-                        "In Time", 
-                        "Out Date", 
-                        "Out Time", 
-                        "Hours", 
-                        "Charges"
-                    ]
+            headers = QueryConfig.slot_booking_detail_header
             common_obj.display_table(data, headers)
     
     def vacate_parking_slot(self) -> None:
@@ -88,10 +74,10 @@ class SlotBooking(ParkingCharges):
             Method to vacate parking slot.
         """
         self.view_booking_details()
-        print("\n" + Config.enter_details_for_updation_prompt + "\n")
+        print("\n" + Config.input_details_for_updation_prompt + "\n")
         vehicle_number = ParkingManagerInputValidation.input_vehicle_number()
         data =  QueryExecutor.fetch_data_from_database(
-                    QueryConfig.query_for_fetching_data_for_vacating_parking_slot,
+                    QueryConfig.query_for_fetching_detail_for_vacating_parking_slot,
                     (vehicle_number, )
                 )
         if not any(data):
@@ -114,7 +100,7 @@ class SlotBooking(ParkingCharges):
 
             if charges == 0.0:
                 return
-            query_for_parking_slot_updation = QueryConfig.query_for_updating_parking_slot_detail_with_parking_slot_no.format("status")
+            query_for_parking_slot_updation = QueryConfig.query_for_updating_parking_slot_detail_from_parking_slot_no.format("status")
             success_message = Config.parking_slot_vacant_prompt + "\n" + Config.print_parking_charges.format(charges, hours_spent) + "\n"
             QueryExecutor.save_data_in_database(
                 query_for_parking_slot_updation,
@@ -122,7 +108,7 @@ class SlotBooking(ParkingCharges):
                 ""
             )
             QueryExecutor.save_data_in_database(
-                QueryConfig.query_for_updating_details_for_vacating_parking_slot,
+                QueryConfig.query_for_updating_detail_for_vacating_parking_slot,
                 (out_date, out_time, hours_spent, charges, booking_id),
                 success_message
             )

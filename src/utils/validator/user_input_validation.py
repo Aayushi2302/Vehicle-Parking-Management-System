@@ -5,7 +5,7 @@ import re
 import logging 
 
 from config.statements.config import Config
-from utils.logs.logs_config import LogConfig
+from logs.logs_config import LogConfig
 
 NAME_REGEX = r"^([A-Za-z]{2,25}\s*)"
 EMAIL_REGEX = r"^[a-z0-9]+@[a-z]+\.[a-z]{2,3}"
@@ -49,7 +49,7 @@ class UserInputValidation:
             validation of name using regular expression
         """
         while True:
-            name = input(Config.employee_name_input_prompt)
+            name = input(Config.input_name_prompt).strip()
             check = input_validation(NAME_REGEX, name)
             if check:
                 return name.title()
@@ -61,7 +61,7 @@ class UserInputValidation:
         """
         while True:
             print(Config.username_format_prompt)
-            username = input(Config.username_prompt)
+            username = input(Config.input_username_prompt).strip()
             check = input_validation(USERNAME_REGEX, username)
             if check:
                 return username.lower()
@@ -73,8 +73,8 @@ class UserInputValidation:
         """
         while True:
             try:
-                age = int(input(Config.employee_age_input_prompt))
-                if age > 60 and age < 15:
+                age = int(input(Config.input_employee_age_prompt))
+                if age > 60 or age < 15:
                     print(Config.age_restriction_prompt + "\n")
                     continue
                 return age
@@ -89,7 +89,7 @@ class UserInputValidation:
         """
         while True:
             try:
-                gender = input(Config.employee_gender_input_prompt).capitalize()
+                gender = input(Config.input_employee_gender_prompt).strip().capitalize()
                 if gender == "F":
                     return "Female"
                 elif gender == "M":
@@ -105,10 +105,10 @@ class UserInputValidation:
             validation of role using regular expression
         """
         while True:
-            role = input(Config.role_prompt).lower()
+            role = input(Config.input_employee_role_prompt).strip().lower()
             check = input_validation(ROLE_REGEX, role)
             if role == "admin":
-                print(Config.cannot_create_admin + "\n")
+                print(Config.cannot_create_admin_prompt + "\n")
                 continue
             if check:
                 return role
@@ -119,7 +119,7 @@ class UserInputValidation:
             validation of email address using regular expression
         """
         while True:
-            email = input(Config.employee_email_input_prompt)
+            email = input(Config.input_employee_email_prompt).strip()
             check = input_validation(EMAIL_REGEX, email)
             if check:
                 return email.lower()
@@ -130,7 +130,7 @@ class UserInputValidation:
             validation of phone number using regular expression
         """
         while True:
-            mobile_number = input(Config.employee_mobile_no_input_prompt)
+            mobile_number = input(Config.employee_mobile_no_input_prompt).strip()
             check = input_validation(MOBILE_NO_REGEX, mobile_number)
             if check:
                 return mobile_number

@@ -24,10 +24,6 @@ employee_detail_update_menu : |
     7. Employee Role
     8. Logout from here
 
-vehicle_type_update_menu : |
-  You can update the following details :
-    1. Price per hour
-
 vehicle_type_manage_menu : |
   You can do the following tasks :
     1. Register a vehicle type

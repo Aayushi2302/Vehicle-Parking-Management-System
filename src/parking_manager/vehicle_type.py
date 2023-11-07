@@ -20,7 +20,7 @@ class VehicleType:
         type_name = ParkingManagerInputValidation.input_vehicle_type_name()
         price_per_hour = ParkingManagerInputValidation.input_price_per_hour()
         data =   QueryExecutor.fetch_data_from_database(
-                    QueryConfig.query_for_fetching_vehicle_type_from_typename,
+                    QueryConfig.query_for_fetching_vehicle_type_from_type_name,
                     (type_name, )
                 )
         if any(data):
@@ -38,10 +38,10 @@ class VehicleType:
             Method for updating vehicle price per hour for parking.
         """
         self.view_vehicle_type()
-        print("\n" + Config.enter_details_for_updation_prompt + "\n")
+        print("\n" + Config.input_details_for_updation_prompt + "\n")
         type_id = ParkingManagerInputValidation.input_vehicle_type_id()
         data =  QueryExecutor.fetch_data_from_database(
-                    QueryConfig.query_for_fetching_price_per_hour_with_typeid,
+                    QueryConfig.query_for_fetching_price_per_hour_from_type_id,
                     (type_id, )
                 )
         if not any(data):
@@ -52,7 +52,7 @@ class VehicleType:
             print(Config.current_price_per_hour_prompt.format(curr_price_per_hour) + "\n")
             print(Config.new_detail_input_prompt.format("Price Per Hour"))
             new_data = ParkingManagerInputValidation.input_price_per_hour()
-            query = QueryConfig.query_for_updating_vehicle_type_detail_from_typeid.format("price_per_hour")
+            query = QueryConfig.query_for_updating_vehicle_type_detail_from_type_id.format("price_per_hour")
             QueryExecutor.save_data_in_database(
                 query,
                 (new_data, type_id),
@@ -70,5 +70,5 @@ class VehicleType:
             print(Config.zero_record_prompt("vehicle_type"))
         else:
             common_obj = Common()
-            headers = ["Type ID", "Type Name", "Price Per Hour"]
+            headers = QueryConfig.vehicle_type_detail_header
             common_obj.display_table(data, headers)
