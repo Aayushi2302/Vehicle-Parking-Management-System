@@ -1,10 +1,9 @@
-"""
-    Module for handling admin menu related logic and user interactions.
-"""
+"""Module for handling admin menu related logic and user interactions."""
 import logging
 
-from config.statements.config import Config
-from config.menu.menu_prompts_config import MenuConfig
+from config.app_config import AppConfig
+from config.prompts import PromptsConfig
+from config.menu import MenuConfig
 from controller.admin_controller import AdminController
 from parking_manager.parking_status import ParkingStatus
 from utils.common import Common
@@ -12,20 +11,16 @@ from utils.common import Common
 logger = logging.getLogger('admin_handler')
 
 class AdminHandler(ParkingStatus):
-    """
-        Class for performing admin menu related interactions.
-    """
+    """Class for performing admin menu related interactions."""
     @staticmethod
     def admin_menu() -> int:
-        """
-            Method to handle admin menu.
-        """
+        """Method to handle admin menu."""
         admin_obj = AdminController()
         common_obj = Common()
         while True:
-            print("\n" + MenuConfig.admin_menu_prompt)
+            print("\n" + MenuConfig.ADMIN_MENU)
             try:
-                choice = int(input(Config.enter_choice_prompt))           
+                choice = int(input(PromptsConfig.ENTER_CHOICE))    
                 match choice:
                     case 1:
                         admin_obj.register_employee()
@@ -39,9 +34,9 @@ class AdminHandler(ParkingStatus):
                         admin_obj.remove_employee()
                     case 6 :
                         while True:
-                            print("\n" + MenuConfig.vehicle_type_manage_menu_prompt)
+                            print("\n" + MenuConfig.MANAGE_VEHICLE_TYPE_MENU)
                             try:
-                                vehicle_type_choice = int(input(Config.enter_choice_prompt))
+                                vehicle_type_choice = int(input(PromptsConfig.ENTER_CHOICE))
                                 match vehicle_type_choice:
                                     case 1:
                                         admin_obj.register_vehicle_type()
@@ -52,15 +47,15 @@ class AdminHandler(ParkingStatus):
                                     case 4 :
                                         break
                                     case _ :
-                                        print(Config.invalid_input_prompt)
+                                        print(PromptsConfig.INVALID_INPUT)
                             except ValueError:
                                 logger.debug(ValueError)
-                                print(Config.invalid_input_prompt + "\n")
+                                print(PromptsConfig.INVALID_INPUT + "\n")
                     case 7 :
                         while True:
-                            print("\n" + MenuConfig.parking_slot_manage_menu_prompt)
+                            print("\n" + MenuConfig.MANAGE_PARKING_SLOT_MENU)
                             try:
-                                parking_slot_choice = int(input(Config.enter_choice_prompt))
+                                parking_slot_choice = int(input(PromptsConfig.ENTER_CHOICE))
                                 match parking_slot_choice:
                                     case 1:
                                         admin_obj.register_or_activate_parking_slot()
@@ -73,15 +68,15 @@ class AdminHandler(ParkingStatus):
                                     case 5 :
                                         break
                                     case _ :
-                                        print(Config.invalid_input_prompt)
+                                        print(PromptsConfig.INVALID_INPUT)
                             except ValueError:
                                 logger.debug(ValueError)
-                                print(Config.invalid_input_prompt + "\n")
+                                print(PromptsConfig.INVALID_INPUT + "\n")
                     case 8 :
                         while True:
-                            print("\n" + MenuConfig.view_parking_status_menu_prompt + "\n")
+                            print("\n" + MenuConfig.VIEW_PARKING_STATUS_MENU + "\n")
                             try:
-                                see_status_choice = int(input(Config.enter_choice_prompt))
+                                see_status_choice = int(input(PromptsConfig.ENTER_CHOICE))
                                 match see_status_choice:
                                     case 1:
                                         AdminHandler.view_current_date_status()
@@ -92,17 +87,17 @@ class AdminHandler(ParkingStatus):
                                     case 4:
                                         break
                                     case _ :
-                                        print(Config.invalid_input_prompt)
+                                        print(PromptsConfig.INVALID_INPUT)
                             except ValueError:
                                 logger.debug(ValueError)
-                                print(Config.invalid_input_prompt + "\n")
+                                print(PromptsConfig.INVALID_INPUT + "\n")
                     case 9 : 
-                        common_obj.view_emp_details()
+                        common_obj.view_individual_employee_details()
                     case 10 : 
-                        print(Config.successful_logout_prompt + "\n")
-                        return Config.maximum_login_attempts
+                        print(PromptsConfig.SUCCESSFUL_LOGOUT + "\n")
+                        return AppConfig.maximum_login_attempts
                     case _ :
-                        print(Config.invalid_input_prompt)
+                        print(PromptsConfig.invalid_input_prompt)
             except ValueError:
                 logger.debug(ValueError)
-                print(Config.invalid_input_prompt + "\n")
+                print(PromptsConfig.invalid_input_prompt + "\n")

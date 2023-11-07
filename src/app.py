@@ -4,24 +4,19 @@
 """
 import logging
 
-from config.statements.config import Config
-from config.menu.menu_prompts_config import MenuConfig
-from config.query.query_config import QueryConfig
+from config.app_config import AppConfig
+from config.menu import MenuConfig
+from config.prompts import PromptsConfig
+from config.query import QueryConfig
 from database.query_executor import QueryExecutor
+from logs.log_config import LogConfig
 from utils.authentication import Authentication
-from logs.logs_config import LogConfig
-
-# loading config files for queries and prompts
-Config.load()
-QueryConfig.load()
-LogConfig.load()
-MenuConfig.load()
 
 # initializing logger for recording logs
 logging.basicConfig(
     format='%(asctime)s %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s',
     level = logging.DEBUG,
-    filename = Config.logs_file_path
+    filename = AppConfig.LOG_FILE_PATH
 )
 logger = logging.getLogger('main')
 
@@ -29,11 +24,11 @@ logger = logging.getLogger('main')
 QueryExecutor.create_all_tables()
 
 if __name__ == "__main__":
-    logger.info(LogConfig.project_starting_info_prompt)
-    print(Config.welcome_message)
+    logger.info(LogConfig.PROJECT_STARTING_INFO)
+    print(PromptsConfig.WELCOME_MESSAGE)
 
     # for user authentication and granting role based access
     authentication_obj = Authentication()
     authentication_obj.login()
 else:
-    logger.debug(LogConfig.wrong_file_run_debug_prompt)
+    logger.debug(LogConfig.WRONG_FILE_RUN_DEBUG)

@@ -1,10 +1,9 @@
-"""
-    Module for handling employee menu related logic and user interactions.
-"""
+"""Module for handling employee menu related logic and user interactions."""
 import logging
 
-from config.statements.config import Config
-from config.menu.menu_prompts_config import MenuConfig
+from config.app_config import AppConfig
+from config.prompts import PromptsConfig
+from config.menu import MenuConfig
 from controller.employee_controller import EmployeeController
 from parking_manager.parking_charges import ParkingCharges
 from utils.common import Common
@@ -12,9 +11,7 @@ from utils.common import Common
 logger = logging.getLogger('employee_handler')
 
 class EmployeeHandler(ParkingCharges):
-    """
-        Class for performing employee menu related interactions.
-    """
+    """Class for performing employee menu related interactions."""
     @staticmethod
     def employee_menu() -> int:
         """
@@ -23,9 +20,9 @@ class EmployeeHandler(ParkingCharges):
         employee_obj = EmployeeController()
         common_obj = Common()
         while True:
-            print("\n" + MenuConfig.employee_menu_prompt)
+            print("\n" + MenuConfig.EMPLOYEE_MENU)
             try:
-                choice = int(input(Config.enter_choice_prompt))
+                choice = int(input(PromptsConfig.ENTER_CHOICE))
                 match choice:
                     case 1:
                         employee_obj.register_customer()
@@ -46,10 +43,10 @@ class EmployeeHandler(ParkingCharges):
                     case 9:
                         common_obj.view_emp_details()
                     case 10:
-                        print(Config.successful_logout_prompt + "\n")
-                        return Config.maximum_login_attempts
+                        print(PromptsConfig.SUCCESSFUL_LOGOUT + "\n")
+                        return AppConfig.maximum_login_attempts
                     case _ :
-                        print(Config.invalid_input_prompt)
+                        print(PromptsConfig.INVALID_INPUT)
             except ValueError:
                 logger.debug(ValueError)
-                print(Config.invalid_input_prompt + "\n")
+                print(PromptsConfig.INVALID_INPUT + "\n")

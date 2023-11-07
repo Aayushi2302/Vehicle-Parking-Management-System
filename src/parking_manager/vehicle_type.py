@@ -1,74 +1,66 @@
-"""
-    Module for performing operations related to vehicle_type(like car, truck, etc.) allowed for parking.
-"""
+"""Module for performing operations related to vehicle_type(like car, truck, etc.) allowed for parking."""
 import shortuuid
 
-from config.statements.config import Config
-from config.query.query_config import QueryConfig
+from config.prompts import PromptsConfig
+from config.query import QueryConfig
 from database.query_executor import QueryExecutor
 from utils.common import Common
 from utils.validator.parking_manager_input_validation import ParkingManagerInputValidation
 
 class VehicleType:
-    """
-        Class for performing operations on vehicle_type.
-    """
+    """This class contains methods for performing operations on vehicle_type."""
     def register_vehicle_type(self) -> None:
-        """
-            Method for registering a vehicle_type.
-        """
+        """Method for registering a vehicle_type."""
         type_name = ParkingManagerInputValidation.input_vehicle_type_name()
         price_per_hour = ParkingManagerInputValidation.input_price_per_hour()
         data =   QueryExecutor.fetch_data_from_database(
-                    QueryConfig.query_for_fetching_vehicle_type_from_type_name,
+                    QueryConfig.FETCH_VEHICLE_TYPE_ID_FROM_TYPE_NAME,
                     (type_name, )
                 )
         if any(data):
-            print(Config.vehicle_type_already_exist_prompt + "\n")
+            print(PromptsConfig.VEHCILE_TYPE_ALREADY_EXIST + "\n")
         else:
             type_id = "TYPE" + shortuuid.ShortUUID().random(length = 5)
-            QueryExecutor.save_data_in_database(
-                QueryConfig.query_for_creating_vehicle_type,
-                (type_id, type_name, price_per_hour),
-                Config.vehicle_type_registration_successful_prompt + "\n"
-            )
+            is_success = QueryExecutor.save_data_in_database(
+                            QueryConfig.CREATE_VEHICLE_TYPE,
+                            (type_id, type_name, price_per_hour)
+                        )
+            if is_success:
+                print(PromptsConfig.VEHICLE_TYPE_REGISTRATION_SUCCESSFUL + "\n")
         
     def update_vehicle_price_per_hour(self) -> None:
-        """
-            Method for updating vehicle price per hour for parking.
-        """
+        """Method for updating vehicle price per hour for parking."""
         self.view_vehicle_type()
-        print("\n" + Config.input_details_for_updation_prompt + "\n")
+        print("\n" + PromptsConfig.INPUT_DETAILS_FOR_UPDATION + "\n")
         type_id = ParkingManagerInputValidation.input_vehicle_type_id()
         data =  QueryExecutor.fetch_data_from_database(
-                    QueryConfig.query_for_fetching_price_per_hour_from_type_id,
+                    QueryConfig.FETCH_PRICE_PER_HOUR_FROM_TYPE_ID,
                     (type_id, )
                 )
         if not any(data):
-            print(Config.typeid_does_not_exist_prompt + "\n")
+            print(PromptsConfig.TYPEID_DOES_NOT_EXIST + "\n")
             return
         else:
             curr_price_per_hour = data[0][0]
-            print(Config.current_price_per_hour_prompt.format(curr_price_per_hour) + "\n")
-            print(Config.new_detail_input_prompt.format("Price Per Hour"))
+            print(PromptsConfig.CURRENT_PRICE_PER_HOUR.format(curr_price_per_hour) + "\n")
+            print(PromptsConfig.NEW_DETAIL_INPUT.format("Price Per Hour"))
             new_data = ParkingManagerInputValidation.input_price_per_hour()
-            query = QueryConfig.query_for_updating_vehicle_type_detail_from_type_id.format("price_per_hour")
-            QueryExecutor.save_data_in_database(
-                query,
-                (new_data, type_id),
-                Config.vehicle_type_details_updation_successful_prompt + "\n"
-            )
+            query = QueryConfig.UPDATE_VEHICLE_TYPE_DETAIL_FROM_TYPE_ID.format("price_per_hour")
+            is_success = QueryExecutor.save_data_in_database(
+                            query,
+                            (new_data, type_id)
+                        )
+            if is_success:
+                print(PromptsConfig.VEHICLE_TYPE_DETAILS_UPDATION_SUCCESSFUL + "\n")
 
     def view_vehicle_type(self) -> None:
-        """
-            Method for viewing details of vehicle_type.
-        """
+        """Method for viewing details of vehicle_type."""
         data = QueryExecutor.fetch_data_from_database(
-                    QueryConfig.query_for_fetching_vehicle_type
+                    QueryConfig.FETCH_VEHICLE_TYPE
                 )
         if not any(data):
-            print(Config.zero_record_prompt("vehicle_type"))
+            print(PromptsConfig.ZERO_RECORD.format("vehicle_type"))
         else:
             common_obj = Common()
-            headers = QueryConfig.vehicle_type_detail_header
+            headers = QueryConfig.VEHICLE_TYPE_DETAIL_HEADER
             common_obj.display_table(data, headers)

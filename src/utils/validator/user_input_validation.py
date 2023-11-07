@@ -1,136 +1,90 @@
-"""
-    Module for validating user related inputs.
-"""
+"""Module for validating user related inputs."""
 import re
 import logging 
 
-from config.statements.config import Config
-from logs.logs_config import LogConfig
-
-NAME_REGEX = r"^([A-Za-z]{2,25}\s*)"
-EMAIL_REGEX = r"^[a-z0-9]+@[a-z]+\.[a-z]{2,3}"
-USERNAME_REGEX = r"(^user@)([a-z]{5,})"
-ROLE_REGEX = r"^([a-z]){5,}$"
-MOBILE_NO_REGEX = r"[6-9][0-9]{9}$"
+from config.prompts import PromptsConfig
+from logs.log_config import LogConfig
+import utils.regex_pattern as Regex
 
 logger = logging.getLogger('validations')
 
-def error_handling_input(func):
-    """
-        decorator for input validation and error handling during customer registration
-    """
-    def wrapper(*args, **kwargs):
-        try:
-            res = func(*args, **kwargs)
-            if res == False:
-                raise Exception
-        except:
-            logger.debug(LogConfig.invalid_input_exception_prompt)
-            print(Config.invalid_input_prompt + "\n")
-        finally:
-            return res
-    return wrapper
-    
-@error_handling_input
-def input_validation(regular_exp, input_field) -> bool:
-    """
-        Function to validate input on basis of regex.
-    """
-    r = re.match(regular_exp, input_field) 
-    if r != None:
-        return True
-    else:
-        return False
-
 class UserInputValidation:
+    """This class contains methods for validating user realted input."""
     @staticmethod
     def input_name() -> str:
-        """
-            validation of name using regular expression
-        """
+        """Validation of name using regular expression."""
         while True:
-            name = input(Config.input_name_prompt).strip()
-            check = input_validation(NAME_REGEX, name)
-            if check:
+            name = input(PromptsConfig.INPUT_NAME).strip()
+            is_valid_name = Regex.input_validation(Regex.NAME_REGEX, name)
+            if is_valid_name:
                 return name.title()
 
     @staticmethod
     def input_username() -> str:
-        """
-            validation for username using regular expression
-        """
+        """Validation for username using regular expression."""
         while True:
-            print(Config.username_format_prompt)
-            username = input(Config.input_username_prompt).strip()
-            check = input_validation(USERNAME_REGEX, username)
-            if check:
+            print(PromptsConfig.USERNAME_FORMAT)
+            username = input(PromptsConfig.INPUT_USERNAME).strip()
+            is_valid_username = Regex.input_validation(Regex.USERNAME_REGEX, username)
+            if is_valid_username:
                 return username.lower()
-            
+           
     @staticmethod
     def input_age() -> int:
-        """
-            validation of age
-        """
+        """Validation of age."""
         while True:
             try:
-                age = int(input(Config.input_employee_age_prompt))
+                age = int(input(PromptsConfig.INPUT_EMPLOYEE_AGE))
                 if age > 60 or age < 15:
-                    print(Config.age_restriction_prompt + "\n")
+                    print(PromptsConfig.AGE_RESTRICTION + "\n")
                     continue
                 return age
-            except Exception as e:
-                logger.debug(e)
-                print(Config.number_input_prompt.format("Age") + "\n")
+            except TypeError as error:
+                logger.debug(error)
+                print(PromptsConfig.NUMBER_INPUT.format("Age") + "\n")
 
     @staticmethod
     def input_gender() -> str:
-        """
-            validation of gender
-        """
+        """Validation of gender."""
         while True:
             try:
-                gender = input(Config.input_employee_gender_prompt).strip().capitalize()
+                gender = input(PromptsConfig.INPUT_EMPLOYEE_GENDER).strip().capitalize()
                 if gender == "F":
                     return "Female"
                 elif gender == "M":
                     return "Male"
                 else:
-                    raise Exception
-            except:
-                print(Config.invalid_input_prompt)
-    
+                    raise ValueError
+            except ValueError as e:
+                logger.debug(e)
+                print(PromptsConfig.INVALID_INPUT)
+   
     @staticmethod
     def input_role() -> str:
-        """
-            validation of role using regular expression
-        """
+        """ Validation of role using regular expression."""
         while True:
-            role = input(Config.input_employee_role_prompt).strip().lower()
-            check = input_validation(ROLE_REGEX, role)
+            role = input(PromptsConfig.INPUT_EMPLOYEE_ROLE).strip().lower()
+            is_valid_role = Regex.input_validation(Regex.ROLE_REGEX, role)
             if role == "admin":
-                print(Config.cannot_create_admin_prompt + "\n")
+                print(PromptsConfig.CANNOT_CREATE_ADMIN + "\n")
                 continue
-            if check:
+            if is_valid_role:
                 return role
             
     @staticmethod
     def input_email_address() -> str:
-        """
-            validation of email address using regular expression
-        """
+        """Validation of email address using regular expression."""
         while True:
-            email = input(Config.input_employee_email_prompt).strip()
-            check = input_validation(EMAIL_REGEX, email)
-            if check:
+            email = input(PromptsConfig.INPUT_EMPLOYEE_EMAIL).strip()
+            is_valid_email = Regex.input_validation(Regex.EMAIL_REGEX, email)
+            if is_valid_email:
                 return email.lower()
 
     @staticmethod
     def input_mobile_number() -> str:
-        """
-            validation of phone number using regular expression
-        """
+        """Validation of phone number using regular expression."""
         while True:
-            mobile_number = input(Config.employee_mobile_no_input_prompt).strip()
-            check = input_validation(MOBILE_NO_REGEX, mobile_number)
-            if check:
+            mobile_number = input(PromptsConfig.INPUT_MOBILE_NUMBER).strip()
+            is_valid_mobile_number = Regex.input_validation(Regex.MOBILE_NO_REGEX, mobile_number)
+            if is_valid_mobile_number:
                 return mobile_number

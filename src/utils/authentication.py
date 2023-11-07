@@ -8,77 +8,68 @@ import logging
 import time
 import maskpass
 
-from config.statements.config import Config
-from config.query.query_config import QueryConfig
+from config.app_config import AppConfig
+from config.prompts import PromptsConfig
+from config.query import QueryConfig
 from controller.admin_controller import AdminController
 from controller.handler.admin_handler import AdminHandler
 from controller.handler.employee_handler import EmployeeHandler
 from database.query_executor import QueryExecutor
+from logs.log_config import LogConfig
 from utils.common import Common
-from logs.logs_config import LogConfig
 
 logger = logging.getLogger('authentication')
 
 class Authentication:
-    """
-        Class for authenticating users and providing role based access as per credentials.
-    """
+    """Class for authenticating users and providing role based access as per credentials."""
     def __init__(self) -> None:
         self.common_obj = Common()
-        self.max_login_attempts = Config.maximum_login_attempts
+        self.max_login_attempts = AppConfig.MAXIMUM_LOGIN_ATTEMPTS
 
     def invalid_login(self) -> None:
-        """
-            Method to notify the user about invalid attempts and attempts left for login.
-        """
-        logging.debug(LogConfig.invalid_login_info_prompt)
+        """Method to notify the user about invalid attempts and attempts left for login."""
+        logging.debug(LogConfig.INVALID_LOGIN_INFO)
         self.max_login_attempts -= 1
-        print(Config.login_attempts_left_prompt.format(self.max_login_attempts) + "\n")
+        print(PromptsConfig.LOGIN_ATTEMPTS_LEFT.format(self.max_login_attempts) + "\n")
 
     def first_login(self, username: str, password: str, input_password: str) -> None:
-        """
-            Method for changing default password on first login.
-        """
-        logging.debug(LogConfig.first_login_info_prompt)
+        """Method for changing default password on first login."""
+        logging.debug(LogConfig.FIRST_LOGIN_INFO)
         if input_password != password:
             self.invalid_login()
         else:
             self.common_obj.create_new_password(username)
 
     def role_based_access(self, role: str) -> None:
-        """
-            Method to assign role to user based on the credentials after authentication.
-        """
-        logging.debug(LogConfig.successful_login_info_prompt)
-        print(Config.successful_login_prompt + "\n")      
+        """Method to assign role to user based on the credentials after authentication."""
+        logging.debug(LogConfig.SUCCESSFUL_LOGIN_INFO)
+        print(PromptsConfig.SUCCESSFUL_LOGIN + "\n")      
         if role == "admin":
             self.max_login_attempts = AdminHandler.admin_menu()
         else:
             self.max_login_attempts = EmployeeHandler.employee_menu()
 
     def login(self) -> None:
-        """
-            Method for authenticating user.
-        """
+        """Method for authenticating user."""
         while True:
             if self.common_obj.is_admin_registered():
-                print(Config.no_records_in_authentication_table_prompt + "\n")
+                print(PromptsConfig.NO_ADMIN_FOUND + "\n")
                 admin_obj = AdminController()
                 admin_obj.register_employee()
 
             if self.max_login_attempts == 0:
-                print(Config.login_attempts_exhausted_prompt + "\n")
+                print(PromptsConfig.LOGIN_ATTEMPTS_EXHAUSTED + "\n")
                 self.max_login_attempts = 3
                 time.sleep(10)
             else:
-                print("\n" + Config.input_credential_prompt)
-                username = input(Config.input_username_prompt).strip()
+                print("\n" + PromptsConfig.INPUT_CREDENTIAL)
+                username = input(PromptsConfig.INPUT_USERNAME).strip()
                 input_password = maskpass.askpass(
-                                            prompt = Config.input_password_prompt, 
+                                            prompt = PromptsConfig.INPUT_PASSWORD, 
                                             mask="*"
                                         ).strip()
                 user_data = QueryExecutor.fetch_data_from_database(
-                                QueryConfig.query_for_fetching_employee_credentials,
+                                QueryConfig.FETCH_EMPLOYEE_CREDENTIALS,
                                 (username, "active")
                             )
                 if not user_data:
@@ -94,4 +85,5 @@ class Authentication:
                         if hashed_password == password:
                             self.role_based_access(role)
                         else:
-                            self.invalid_login()     
+                            self.invalid_login()  
+   

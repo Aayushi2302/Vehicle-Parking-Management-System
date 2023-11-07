@@ -6,96 +6,90 @@ from sqlite3 import IntegrityError
 from sqlite3 import OperationalError
 from sqlite3 import ProgrammingError
 
-from config.statements.config import Config
-from config.query.query_config import QueryConfig
+from config.app_config import AppConfig
+from config.prompts import PromptsConfig
+from config.query import QueryConfig
 from database.db_connector import DatabaseConnection
-from logs.logs_config import LogConfig
+from logs.log_config import LogConfig
 
 logger = logging.getLogger('query_executor')
 
 class QueryExecutor:
-    """
-        Class containing methods for executing database queries fetched from QueryConfig.
-    """
+    """This class contains methods for executing database queries fetched from QueryConfig."""
     @staticmethod
     def create_all_tables() -> None:
-        """
-            Method for creating all tables of database.
-        """
+        """ Method for creating all tables of database."""
         try:
-            with DatabaseConnection(Config.database_path) as connection:
+            with DatabaseConnection(AppConfig.DATABASE_PATH) as connection:
                 cursor = connection.cursor()
-                cursor.execute(QueryConfig.query_for_authentication_table_creation)
-                logger.info(LogConfig.successful_authentication_table_creation_info_prompt)
-                cursor.execute(QueryConfig.query_for_employee_table_creation)
-                logger.info(LogConfig.successful_employee_table_creation_info_prompt)
-                cursor.execute(QueryConfig.query_for_customer_table_creation)
-                logger.info(LogConfig.successful_vehicle_type_table_creation_info_prompt)
-                cursor.execute(QueryConfig.query_for_parking_slot_table_creation)
-                logger.info(LogConfig.successful_parking_slot_table_creation_info_prompt)
-                cursor.execute(QueryConfig.query_for_vehicle_type_table_creation)
-                logger.info(LogConfig.successful_customer_table_creation_info_prompt)
-                cursor.execute(QueryConfig.query_for_slot_booking_table_creation)
-                logger.info(LogConfig.successful_slot_booking_table_creation_info_prompt)
-        except OperationalError as e:
-            logger.debug(e)
-            print(Config.operational_error_message_prompt + "\n")
-        except ProgrammingError as e:
-            logger.debug(e)
-            print(Config.programming_error_message_prompt + "\n")
-        except Exception as e:
-            logger.debug(e)
-            print(Config.general_exception_message_prompt + "\n")
+                cursor.execute(QueryConfig.AUTHENTICATION_TABLE_CREATION)
+                logger.info(LogConfig.SUCCESSFUL_AUTHENTICATION_TABLE_CREATION_INFO)
+                cursor.execute(QueryConfig.EMPLOYEE_TABLE_CREATION)
+                logger.info(LogConfig.SUCCESSFUL_EMPLOYEE_TABLE_CREATION_INFO)
+                cursor.execute(QueryConfig.CUSTOMER_TABLE_CREATION)
+                logger.info(LogConfig.SUCCESSFUL_CUSTOMER_TABLE_CREATION_INFO)
+                cursor.execute(QueryConfig.PARKING_SLOT_TABLE_CREATION)
+                logger.info(LogConfig.SUCCESSFUL_PARKING_SLOT_TABLE_CREATION_INFO)
+                cursor.execute(QueryConfig.VEHICLE_TYPE_TABLE_CREATION)
+                logger.info(LogConfig.SUCCESSFUL_VEHICLE_TYPE_TABLE_CREATION_INFO)
+                cursor.execute(QueryConfig.SLOT_BOOKING_TABLE_CREATION)
+                logger.info(LogConfig.SUCCESSFUL_SLOT_BOOKING_TABLE_CREATION_INFO)
+        except OperationalError as error:
+            logger.debug(error)
+            print(PromptsConfig.OPERATIONAL_ERROR_MESSAGE + "\n")
+        except ProgrammingError as error:
+            logger.debug(error)
+            print(PromptsConfig.PROGRAMMING_ERROR_MESSAGE + "\n")
+        except Exception as error:
+            logger.debug(error)
+            print(PromptsConfig.GENERAL_EXCEPTION_MESSAGE + "\n")
 
     @staticmethod
     def fetch_data_from_database(query: str, data: tuple = None) -> list:
-        """
-            Method to fetch all the data from the database with the query and data passed as parameter.
-        """
+        """Method to fetch all the data from the database with the query and data passed as parameter."""
         try:
-            with DatabaseConnection(Config.database_path) as connection:
+            with DatabaseConnection(AppConfig.DATABASE_PATH) as connection:
                 cursor = connection.cursor()
                 if not data:
                     cursor.execute(query)
                 else:
                     cursor.execute(query, data)
                 data = cursor.fetchall()
-                logger.info(LogConfig.data_fetched_from_database_successful_info_prompt)
+                logger.info(LogConfig.DATA_FETCHED_FROM_DATABASE_SUCESSFUL_INFO)
                 return data
-        except IntegrityError as e:
-            logger.debug(e)
-            print(Config.integrity_error_message_prompt + "\n")
-        except OperationalError as e:
-            logger.debug(e)
-            print(Config.operational_error_message_prompt + "\n")
-        except ProgrammingError as e:
-            logger.debug(e)
-            print(Config.programming_error_message_prompt + "\n")
-        except Exception as e:
-            logger.debug(e)
-            print(Config.general_exception_message_prompt + "\n")
+        except IntegrityError as error:
+            logger.debug(error)
+            print(PromptsConfig.INTEGRITY_ERROR_MESSAGE + "\n")
+        except OperationalError as error:
+            logger.debug(error)
+            print(PromptsConfig.OPERATIONAL_ERROR_MESSAGE + "\n")
+        except ProgrammingError as error:
+            logger.debug(error)
+            print(PromptsConfig.PROGRAMMING_ERROR_MESSAGE + "\n")
+        except Exception as error:
+            logger.debug(error)
+            print(PromptsConfig.GENERAL_EXCEPTION_MESSAGE + "\n")
      
     @staticmethod
-    def save_data_in_database(query: str, data: tuple, success_message: str) -> None:
-        """
-            Method to save data to database with query and data passed as parameter.
-        """
+    def save_data_in_database(query: str, data: tuple) -> bool:
+        """Method to save data to database with query and data passed as parameter."""
         try:
-            with DatabaseConnection(Config.database_path) as connection:
+            with DatabaseConnection(AppConfig.DATABASE_PATH) as connection:
                 cursor = connection.cursor()
                 cursor.execute(query, data)
                 connection.commit()
-                print(success_message)
-                logger.info(LogConfig.data_saved_to_database_successful_info_prompt)
-        except IntegrityError as e:
-            logger.debug(e)
-            print(Config.integrity_error_message_prompt + "\n")
-        except OperationalError as e:
-            logger.debug(e)
-            print(Config.operational_error_message_prompt + "\n")
-        except ProgrammingError as e:
-            logger.debug(e)
-            print(Config.programming_error_message_prompt + "\n")
-        except Exception as e:
-            logger.debug(e)
-            print(Config.general_exception_message_prompt + "\n")
+                logger.info(LogConfig.DAAT_SAVED_TO_DATABASE_SUCCESSFUL_INFO)
+                return True
+        except IntegrityError as error:
+            logger.debug(error)
+            print(PromptsConfig.INTEGRITY_ERROR_MESSAGE + "\n")
+        except OperationalError as error:
+            logger.debug(error)
+            print(PromptsConfig.OPERATIONAL_ERROR_MESSAGE + "\n")
+        except ProgrammingError as error:
+            logger.debug(error)
+            print(PromptsConfig.PROGRAMMING_ERROR_MESSAGE + "\n")
+        except Exception as error:
+            logger.debug(error)
+            print(PromptsConfig.GENERAL_EXCEPTION_MESSAGE + "\n")
+        return False
