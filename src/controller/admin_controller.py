@@ -45,7 +45,7 @@ class AdminController(VehicleType, ParkingSlot):
                 print(PromptsConfig.USER_ALREADY_EXIST.format(emp_email_address) + "\n")
             else:
                 is_success = QueryExecutor.save_data_in_database(
-                                QueryConfig.query_for_creating_employee_credentials,
+                                QueryConfig.CREATE_EMPLOYEE_CREDENTIALS,
                                 (emp_id, emp_username, emp_password, emp_role)
                             )
                 if is_success:
@@ -111,10 +111,10 @@ class AdminController(VehicleType, ParkingSlot):
         if status == "inactive":
             print(PromptsConfig.UPDATE_DETAILS_FOR_INACTIVE_STATUS)
         else:
-            query = QueryConfig.UPDATE_EMPLOYEE_CREDENTIAL_FROM_EMP_ID.format("status")
+            query = QueryConfig.UPDATE_EMPLOYEE_DETAIL_FROM_EMP_ID.format("status")
             is_success = QueryExecutor.save_data_in_database(
                             query,
-                            ("inactive", emp_id )
+                            ("inactive", emp_id)
                         )
             if is_success:
                 print(PromptsConfig.EMPLOYEE_REMOVAL_SUCCESSFUL + "\n")

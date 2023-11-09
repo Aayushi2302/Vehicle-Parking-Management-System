@@ -24,10 +24,10 @@ def error_handling_input(func):
     def wrapper(*args, **kwargs):
         try:
             result = func(*args, **kwargs)
-            if result is False:
+            if result is False or result is None:
                 raise Exception
         except Exception:
-            logger.debug(LogConfig.invalid_input_exception_prompt)
+            logger.debug(LogConfig.INVALID_INPUT_EXCEPTION_INFO)
             print(PromptsConfig.INVALID_INPUT+ "\n")
         finally:
             return result

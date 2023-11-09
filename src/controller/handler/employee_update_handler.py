@@ -66,7 +66,7 @@ def employee_details_update_menu() -> None:
                 if updated_field in ("role", "username"):
                     query = QueryConfig.UPDATE_EMPLOYEE_CREDENTIAL_FROM_EMP_ID.format(updated_field)
                 else:
-                    query = QueryConfig.UPDATE_EMPLOYEE_DETAIL_FROM_EMPID.format(updated_field)
+                    query = QueryConfig.UPDATE_EMPLOYEE_DETAIL_FROM_EMP_ID.format(updated_field)
 
                 is_success = QueryExecutor.save_data_in_database(
                                 query,

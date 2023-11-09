@@ -41,10 +41,10 @@ class EmployeeHandler(ParkingCharges):
                     case 8:
                         EmployeeHandler.view_parking_charges_for_vehicle_type()
                     case 9:
-                        common_obj.view_emp_details()
+                        common_obj.view_individual_employee_details()
                     case 10:
                         print(PromptsConfig.SUCCESSFUL_LOGOUT + "\n")
-                        return AppConfig.maximum_login_attempts
+                        return AppConfig.MAXIMUM_LOGIN_ATTEMPTS
                     case _ :
                         print(PromptsConfig.INVALID_INPUT)
             except ValueError:

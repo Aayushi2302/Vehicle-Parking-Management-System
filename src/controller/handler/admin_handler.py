@@ -95,7 +95,7 @@ class AdminHandler(ParkingStatus):
                         common_obj.view_individual_employee_details()
                     case 10 : 
                         print(PromptsConfig.SUCCESSFUL_LOGOUT + "\n")
-                        return AppConfig.maximum_login_attempts
+                        return AppConfig.MAXIMUM_LOGIN_ATTEMPTS
                     case _ :
                         print(PromptsConfig.invalid_input_prompt)
             except ValueError:

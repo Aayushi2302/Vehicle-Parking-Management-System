@@ -879,3 +879,377 @@
 2023-11-08 03:14:04,981 INFO     [query_executor.py:36] slot_booking table created successfully.
 2023-11-08 03:14:04,981 INFO     [app.py:27] Starting with vehicle parking management system.
 2023-11-08 03:14:04,981 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:14:59,573 INFO     [query_executor.py:26] authentication table created successfully.
+2023-11-08 09:14:59,573 INFO     [query_executor.py:28] employee table created successfully.
+2023-11-08 09:14:59,573 INFO     [query_executor.py:30] customer table created successfully.
+2023-11-08 09:14:59,573 INFO     [query_executor.py:32] parking_slot table created successfully.
+2023-11-08 09:14:59,573 INFO     [query_executor.py:34] vehicle_type table created successfully.
+2023-11-08 09:14:59,573 INFO     [query_executor.py:36] slot_booking table created successfully.
+2023-11-08 09:14:59,573 INFO     [app.py:27] Starting with vehicle parking management system.
+2023-11-08 09:14:59,573 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:15:12,843 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:15:12,844 DEBUG    [authentication.py:45] Successful login into the system.
+2023-11-08 09:15:57,134 DEBUG    [user_input_validation.py:59] 
+2023-11-08 09:18:14,497 INFO     [query_executor.py:26] authentication table created successfully.
+2023-11-08 09:18:14,497 INFO     [query_executor.py:28] employee table created successfully.
+2023-11-08 09:18:14,497 INFO     [query_executor.py:30] customer table created successfully.
+2023-11-08 09:18:14,497 INFO     [query_executor.py:32] parking_slot table created successfully.
+2023-11-08 09:18:14,497 INFO     [query_executor.py:34] vehicle_type table created successfully.
+2023-11-08 09:18:14,497 INFO     [query_executor.py:36] slot_booking table created successfully.
+2023-11-08 09:18:14,497 INFO     [app.py:27] Starting with vehicle parking management system.
+2023-11-08 09:18:14,497 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:18:22,996 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:18:22,996 DEBUG    [authentication.py:45] Successful login into the system.
+2023-11-08 09:19:33,972 INFO     [query_executor.py:26] authentication table created successfully.
+2023-11-08 09:19:33,973 INFO     [query_executor.py:28] employee table created successfully.
+2023-11-08 09:19:33,973 INFO     [query_executor.py:30] customer table created successfully.
+2023-11-08 09:19:33,974 INFO     [query_executor.py:32] parking_slot table created successfully.
+2023-11-08 09:19:33,974 INFO     [query_executor.py:34] vehicle_type table created successfully.
+2023-11-08 09:19:33,974 INFO     [query_executor.py:36] slot_booking table created successfully.
+2023-11-08 09:19:33,975 INFO     [app.py:27] Starting with vehicle parking management system.
+2023-11-08 09:19:33,976 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:19:40,282 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:19:40,284 DEBUG    [authentication.py:45] Successful login into the system.
+2023-11-08 09:20:05,210 DEBUG    [query_executor.py:84] UNIQUE constraint failed: authentication.username
+2023-11-08 09:23:03,861 DEBUG    [admin_handler.py:102] <class 'ValueError'>
+2023-11-08 09:23:07,844 INFO     [query_executor.py:26] authentication table created successfully.
+2023-11-08 09:23:07,844 INFO     [query_executor.py:28] employee table created successfully.
+2023-11-08 09:23:07,845 INFO     [query_executor.py:30] customer table created successfully.
+2023-11-08 09:23:07,845 INFO     [query_executor.py:32] parking_slot table created successfully.
+2023-11-08 09:23:07,845 INFO     [query_executor.py:34] vehicle_type table created successfully.
+2023-11-08 09:23:07,845 INFO     [query_executor.py:36] slot_booking table created successfully.
+2023-11-08 09:23:07,846 INFO     [app.py:27] Starting with vehicle parking management system.
+2023-11-08 09:23:07,846 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:23:13,497 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:23:13,498 DEBUG    [authentication.py:45] Successful login into the system.
+2023-11-08 09:23:38,336 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:26:59,062 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:26:59,074 DEBUG    [query_executor.py:93] type object 'LogConfig' has no attribute 'DAAT_SAVED_TO_DATABASE_SUCCESSFUL_INFO'
+2023-11-08 09:29:33,394 INFO     [query_executor.py:26] authentication table created successfully.
+2023-11-08 09:29:33,395 INFO     [query_executor.py:28] employee table created successfully.
+2023-11-08 09:29:33,395 INFO     [query_executor.py:30] customer table created successfully.
+2023-11-08 09:29:33,395 INFO     [query_executor.py:32] parking_slot table created successfully.
+2023-11-08 09:29:33,395 INFO     [query_executor.py:34] vehicle_type table created successfully.
+2023-11-08 09:29:33,396 INFO     [query_executor.py:36] slot_booking table created successfully.
+2023-11-08 09:29:33,396 INFO     [app.py:27] Starting with vehicle parking management system.
+2023-11-08 09:29:33,397 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:29:43,227 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:29:43,228 DEBUG    [authentication.py:45] Successful login into the system.
+2023-11-08 09:31:06,860 INFO     [query_executor.py:26] authentication table created successfully.
+2023-11-08 09:31:06,860 INFO     [query_executor.py:28] employee table created successfully.
+2023-11-08 09:31:06,860 INFO     [query_executor.py:30] customer table created successfully.
+2023-11-08 09:31:06,860 INFO     [query_executor.py:32] parking_slot table created successfully.
+2023-11-08 09:31:06,861 INFO     [query_executor.py:34] vehicle_type table created successfully.
+2023-11-08 09:31:06,861 INFO     [query_executor.py:36] slot_booking table created successfully.
+2023-11-08 09:31:06,861 INFO     [app.py:27] Starting with vehicle parking management system.
+2023-11-08 09:31:06,861 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:31:12,872 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:31:12,872 DEBUG    [authentication.py:45] Successful login into the system.
+2023-11-08 09:31:22,944 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:31:37,129 DEBUG    [regex_pattern.py:30] Invalid input by user.
+2023-11-08 09:31:51,294 INFO     [query_executor.py:26] authentication table created successfully.
+2023-11-08 09:31:51,295 INFO     [query_executor.py:28] employee table created successfully.
+2023-11-08 09:31:51,295 INFO     [query_executor.py:30] customer table created successfully.
+2023-11-08 09:31:51,295 INFO     [query_executor.py:32] parking_slot table created successfully.
+2023-11-08 09:31:51,295 INFO     [query_executor.py:34] vehicle_type table created successfully.
+2023-11-08 09:31:51,295 INFO     [query_executor.py:36] slot_booking table created successfully.
+2023-11-08 09:31:51,295 INFO     [app.py:27] Starting with vehicle parking management system.
+2023-11-08 09:31:51,296 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:31:57,339 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:31:57,340 DEBUG    [authentication.py:45] Successful login into the system.
+2023-11-08 09:32:21,253 DEBUG    [regex_pattern.py:30] Invalid input by user.
+2023-11-08 09:32:56,119 DEBUG    [regex_pattern.py:30] Invalid input by user.
+2023-11-08 09:33:03,733 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:35:10,052 INFO     [query_executor.py:26] authentication table created successfully.
+2023-11-08 09:35:10,052 INFO     [query_executor.py:28] employee table created successfully.
+2023-11-08 09:35:10,053 INFO     [query_executor.py:30] customer table created successfully.
+2023-11-08 09:35:10,053 INFO     [query_executor.py:32] parking_slot table created successfully.
+2023-11-08 09:35:10,053 INFO     [query_executor.py:34] vehicle_type table created successfully.
+2023-11-08 09:35:10,053 INFO     [query_executor.py:36] slot_booking table created successfully.
+2023-11-08 09:35:10,054 INFO     [app.py:27] Starting with vehicle parking management system.
+2023-11-08 09:35:10,054 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:35:15,504 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:35:15,506 DEBUG    [authentication.py:45] Successful login into the system.
+2023-11-08 09:35:25,775 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:35:52,798 DEBUG    [regex_pattern.py:30] Invalid input by user.
+2023-11-08 09:35:59,514 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:35:59,526 INFO     [query_executor.py:81] Data saved to database successfully.
+2023-11-08 09:35:59,529 DEBUG    [query_executor.py:84] UNIQUE constraint failed: employee.mobile_no
+2023-11-08 09:47:50,159 DEBUG    [admin_handler.py:102] <class 'ValueError'>
+2023-11-08 09:47:54,419 INFO     [query_executor.py:26] authentication table created successfully.
+2023-11-08 09:47:54,419 INFO     [query_executor.py:28] employee table created successfully.
+2023-11-08 09:47:54,419 INFO     [query_executor.py:30] customer table created successfully.
+2023-11-08 09:47:54,419 INFO     [query_executor.py:32] parking_slot table created successfully.
+2023-11-08 09:47:54,419 INFO     [query_executor.py:34] vehicle_type table created successfully.
+2023-11-08 09:47:54,419 INFO     [query_executor.py:36] slot_booking table created successfully.
+2023-11-08 09:47:54,419 INFO     [app.py:27] Starting with vehicle parking management system.
+2023-11-08 09:47:54,422 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:48:02,310 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:48:02,311 DEBUG    [authentication.py:45] Successful login into the system.
+2023-11-08 09:48:11,522 DEBUG    [regex_pattern.py:30] Invalid input by user.
+2023-11-08 09:48:18,806 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:48:42,837 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:48:42,847 INFO     [query_executor.py:81] Data saved to database successfully.
+2023-11-08 09:48:42,853 INFO     [query_executor.py:81] Data saved to database successfully.
+2023-11-08 09:48:46,346 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:48:56,856 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:49:03,076 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:49:07,106 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:49:19,695 INFO     [query_executor.py:81] Data saved to database successfully.
+2023-11-08 09:49:26,563 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:49:37,839 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:49:53,541 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:50:07,598 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:50:16,705 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:50:26,418 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:50:53,658 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 09:51:03,964 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 10:13:55,643 DEBUG    [admin_handler.py:52] <class 'ValueError'>
+2023-11-08 10:14:08,039 INFO     [query_executor.py:26] authentication table created successfully.
+2023-11-08 10:14:08,039 INFO     [query_executor.py:28] employee table created successfully.
+2023-11-08 10:14:08,041 INFO     [query_executor.py:30] customer table created successfully.
+2023-11-08 10:14:08,041 INFO     [query_executor.py:32] parking_slot table created successfully.
+2023-11-08 10:14:08,041 INFO     [query_executor.py:34] vehicle_type table created successfully.
+2023-11-08 10:14:08,041 INFO     [query_executor.py:36] slot_booking table created successfully.
+2023-11-08 10:14:08,041 INFO     [app.py:27] Starting with vehicle parking management system.
+2023-11-08 10:14:08,041 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 10:14:14,107 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 10:14:14,107 DEBUG    [authentication.py:45] Successful login into the system.
+2023-11-08 11:16:08,946 INFO     [query_executor.py:26] authentication table created successfully.
+2023-11-08 11:16:08,946 INFO     [query_executor.py:28] employee table created successfully.
+2023-11-08 11:16:08,946 INFO     [query_executor.py:30] customer table created successfully.
+2023-11-08 11:16:08,946 INFO     [query_executor.py:32] parking_slot table created successfully.
+2023-11-08 11:16:08,946 INFO     [query_executor.py:34] vehicle_type table created successfully.
+2023-11-08 11:16:08,946 INFO     [query_executor.py:36] slot_booking table created successfully.
+2023-11-08 11:16:08,946 INFO     [app.py:27] Starting with vehicle parking management system.
+2023-11-08 11:16:08,946 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 11:16:17,063 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 11:16:17,063 DEBUG    [authentication.py:31] Invalid Login into the system.
+2023-11-08 11:16:17,066 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 11:16:23,575 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 11:16:23,576 DEBUG    [authentication.py:45] Successful login into the system.
+2023-11-08 11:16:45,031 DEBUG    [regex_pattern.py:30] Invalid input by user.
+2023-11-08 11:16:51,861 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 11:17:22,978 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 11:17:23,000 INFO     [query_executor.py:81] Data saved to database successfully.
+2023-11-08 11:17:23,005 INFO     [query_executor.py:81] Data saved to database successfully.
+2023-11-08 11:17:27,463 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 11:17:40,933 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 11:17:49,865 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 11:17:49,881 DEBUG    [query_executor.py:87] no such column: status
+2023-11-08 11:18:01,416 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 16:42:24,172 INFO     [query_executor.py:26] authentication table created successfully.
+2023-11-08 16:42:24,176 INFO     [query_executor.py:28] employee table created successfully.
+2023-11-08 16:42:24,178 INFO     [query_executor.py:30] customer table created successfully.
+2023-11-08 16:42:24,179 INFO     [query_executor.py:32] parking_slot table created successfully.
+2023-11-08 16:42:24,180 INFO     [query_executor.py:34] vehicle_type table created successfully.
+2023-11-08 16:42:24,180 INFO     [query_executor.py:36] slot_booking table created successfully.
+2023-11-08 16:42:24,182 INFO     [app.py:27] Starting with vehicle parking management system.
+2023-11-08 16:42:24,184 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 16:42:35,798 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 16:42:35,798 DEBUG    [authentication.py:45] Successful login into the system.
+2023-11-08 16:42:42,292 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 16:42:56,192 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 16:43:08,692 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 16:43:18,192 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 16:43:19,256 DEBUG    [regex_pattern.py:30] Invalid input by user.
+2023-11-08 16:43:28,994 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 16:43:40,242 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 16:43:48,053 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 16:44:19,783 INFO     [query_executor.py:26] authentication table created successfully.
+2023-11-08 16:44:19,783 INFO     [query_executor.py:28] employee table created successfully.
+2023-11-08 16:44:19,783 INFO     [query_executor.py:30] customer table created successfully.
+2023-11-08 16:44:19,783 INFO     [query_executor.py:32] parking_slot table created successfully.
+2023-11-08 16:44:19,783 INFO     [query_executor.py:34] vehicle_type table created successfully.
+2023-11-08 16:44:19,787 INFO     [query_executor.py:36] slot_booking table created successfully.
+2023-11-08 16:44:19,787 INFO     [app.py:27] Starting with vehicle parking management system.
+2023-11-08 16:44:19,787 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 16:44:30,703 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 16:44:30,704 DEBUG    [authentication.py:45] Successful login into the system.
+2023-11-08 16:44:33,215 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 16:44:42,768 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-08 16:44:42,779 INFO     [query_executor.py:81] Data saved to database successfully.
+2023-11-08 16:44:59,121 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 07:37:03,597 INFO     [query_executor.py:26] authentication table created successfully.
+2023-11-09 07:37:03,597 INFO     [query_executor.py:28] employee table created successfully.
+2023-11-09 07:37:03,597 INFO     [query_executor.py:30] customer table created successfully.
+2023-11-09 07:37:03,597 INFO     [query_executor.py:32] parking_slot table created successfully.
+2023-11-09 07:37:03,597 INFO     [query_executor.py:34] vehicle_type table created successfully.
+2023-11-09 07:37:03,597 INFO     [query_executor.py:36] slot_booking table created successfully.
+2023-11-09 07:37:03,597 INFO     [app.py:27] Starting with vehicle parking management system.
+2023-11-09 07:37:03,597 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 07:37:10,531 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 07:37:10,531 DEBUG    [authentication.py:45] Successful login into the system.
+2023-11-09 07:37:19,221 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 07:38:28,994 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 07:38:28,995 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 07:39:33,605 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 07:39:56,448 DEBUG    [user_input_validation.py:59] 
+2023-11-09 07:40:46,714 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 07:40:46,729 INFO     [query_executor.py:81] Data saved to database successfully.
+2023-11-09 07:40:46,741 INFO     [query_executor.py:81] Data saved to database successfully.
+2023-11-09 07:40:54,296 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 07:43:34,591 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 07:43:45,524 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 07:46:09,800 INFO     [query_executor.py:26] authentication table created successfully.
+2023-11-09 07:46:09,801 INFO     [query_executor.py:28] employee table created successfully.
+2023-11-09 07:46:09,801 INFO     [query_executor.py:30] customer table created successfully.
+2023-11-09 07:46:09,801 INFO     [query_executor.py:32] parking_slot table created successfully.
+2023-11-09 07:46:09,801 INFO     [query_executor.py:34] vehicle_type table created successfully.
+2023-11-09 07:46:09,801 INFO     [query_executor.py:36] slot_booking table created successfully.
+2023-11-09 07:46:09,801 INFO     [app.py:27] Starting with vehicle parking management system.
+2023-11-09 07:46:09,801 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 07:46:17,964 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 07:46:17,966 DEBUG    [authentication.py:45] Successful login into the system.
+2023-11-09 07:46:20,912 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 07:46:35,744 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 07:46:41,155 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 07:46:57,013 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 07:47:11,242 INFO     [query_executor.py:81] Data saved to database successfully.
+2023-11-09 07:47:44,622 INFO     [query_executor.py:81] Data saved to database successfully.
+2023-11-09 07:47:53,157 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 07:48:27,236 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 07:48:40,973 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:10:49,938 INFO     [query_executor.py:26] authentication table created successfully.
+2023-11-09 09:10:49,939 INFO     [query_executor.py:28] employee table created successfully.
+2023-11-09 09:10:49,939 INFO     [query_executor.py:30] customer table created successfully.
+2023-11-09 09:10:49,939 INFO     [query_executor.py:32] parking_slot table created successfully.
+2023-11-09 09:10:49,939 INFO     [query_executor.py:34] vehicle_type table created successfully.
+2023-11-09 09:10:49,939 INFO     [query_executor.py:36] slot_booking table created successfully.
+2023-11-09 09:10:49,939 INFO     [app.py:27] Starting with vehicle parking management system.
+2023-11-09 09:10:49,939 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:10:55,758 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:10:55,760 DEBUG    [authentication.py:45] Successful login into the system.
+2023-11-09 09:11:02,672 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:11:11,117 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:12:55,460 INFO     [query_executor.py:26] authentication table created successfully.
+2023-11-09 09:12:55,460 INFO     [query_executor.py:28] employee table created successfully.
+2023-11-09 09:12:55,460 INFO     [query_executor.py:30] customer table created successfully.
+2023-11-09 09:12:55,460 INFO     [query_executor.py:32] parking_slot table created successfully.
+2023-11-09 09:12:55,460 INFO     [query_executor.py:34] vehicle_type table created successfully.
+2023-11-09 09:12:55,460 INFO     [query_executor.py:36] slot_booking table created successfully.
+2023-11-09 09:12:55,460 INFO     [app.py:27] Starting with vehicle parking management system.
+2023-11-09 09:12:55,460 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:13:03,472 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:13:03,472 DEBUG    [authentication.py:45] Successful login into the system.
+2023-11-09 09:13:08,953 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:13:15,262 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:13:16,968 INFO     [query_executor.py:81] Data saved to database successfully.
+2023-11-09 09:13:20,318 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:13:32,389 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:13:42,987 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:13:42,993 INFO     [query_executor.py:81] Data saved to database successfully.
+2023-11-09 09:13:51,646 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:14:00,523 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:14:00,532 INFO     [query_executor.py:81] Data saved to database successfully.
+2023-11-09 09:14:07,017 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:14:18,645 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:14:23,402 DEBUG    [regex_pattern.py:30] Invalid input by user.
+2023-11-09 09:14:27,716 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:14:27,723 INFO     [query_executor.py:81] Data saved to database successfully.
+2023-11-09 09:14:30,947 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:14:37,308 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:14:40,819 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:14:40,830 INFO     [query_executor.py:81] Data saved to database successfully.
+2023-11-09 09:14:44,992 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:15:08,736 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:15:08,751 INFO     [query_executor.py:81] Data saved to database successfully.
+2023-11-09 09:15:13,891 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:15:19,755 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:15:19,762 INFO     [query_executor.py:81] Data saved to database successfully.
+2023-11-09 09:15:29,756 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:15:29,762 INFO     [query_executor.py:81] Data saved to database successfully.
+2023-11-09 09:15:45,672 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:15:53,248 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:15:55,576 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:15:58,831 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:18:56,461 INFO     [query_executor.py:26] authentication table created successfully.
+2023-11-09 09:18:56,462 INFO     [query_executor.py:28] employee table created successfully.
+2023-11-09 09:18:56,462 INFO     [query_executor.py:30] customer table created successfully.
+2023-11-09 09:18:56,463 INFO     [query_executor.py:32] parking_slot table created successfully.
+2023-11-09 09:18:56,463 INFO     [query_executor.py:34] vehicle_type table created successfully.
+2023-11-09 09:18:56,463 INFO     [query_executor.py:36] slot_booking table created successfully.
+2023-11-09 09:18:56,463 INFO     [app.py:27] Starting with vehicle parking management system.
+2023-11-09 09:18:56,463 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:19:00,810 INFO     [query_executor.py:26] authentication table created successfully.
+2023-11-09 09:19:00,810 INFO     [query_executor.py:28] employee table created successfully.
+2023-11-09 09:19:00,810 INFO     [query_executor.py:30] customer table created successfully.
+2023-11-09 09:19:00,810 INFO     [query_executor.py:32] parking_slot table created successfully.
+2023-11-09 09:19:00,810 INFO     [query_executor.py:34] vehicle_type table created successfully.
+2023-11-09 09:19:00,810 INFO     [query_executor.py:36] slot_booking table created successfully.
+2023-11-09 09:19:00,810 INFO     [app.py:27] Starting with vehicle parking management system.
+2023-11-09 09:19:00,810 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:20:16,458 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:20:16,459 DEBUG    [authentication.py:31] Invalid Login into the system.
+2023-11-09 09:20:16,462 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:20:30,522 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:20:30,522 DEBUG    [authentication.py:37] First Login into the system successful.Change password.
+2023-11-09 09:20:38,708 INFO     [query_executor.py:81] Data saved to database successfully.
+2023-11-09 09:20:38,710 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:20:48,923 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:20:48,924 DEBUG    [authentication.py:45] Successful login into the system.
+2023-11-09 09:20:52,549 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:23:03,339 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:23:03,341 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:23:23,911 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:23:23,922 INFO     [query_executor.py:81] Data saved to database successfully.
+2023-11-09 09:27:20,103 INFO     [query_executor.py:26] authentication table created successfully.
+2023-11-09 09:27:20,103 INFO     [query_executor.py:28] employee table created successfully.
+2023-11-09 09:27:20,103 INFO     [query_executor.py:30] customer table created successfully.
+2023-11-09 09:27:20,103 INFO     [query_executor.py:32] parking_slot table created successfully.
+2023-11-09 09:27:20,103 INFO     [query_executor.py:34] vehicle_type table created successfully.
+2023-11-09 09:27:20,103 INFO     [query_executor.py:36] slot_booking table created successfully.
+2023-11-09 09:27:20,103 INFO     [app.py:27] Starting with vehicle parking management system.
+2023-11-09 09:27:20,103 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:27:26,532 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:27:26,532 DEBUG    [authentication.py:45] Successful login into the system.
+2023-11-09 09:27:30,528 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:27:37,203 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:27:37,204 DEBUG    [authentication.py:45] Successful login into the system.
+2023-11-09 09:28:00,160 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:28:40,458 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:28:40,461 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:30:58,971 INFO     [query_executor.py:26] authentication table created successfully.
+2023-11-09 09:30:58,971 INFO     [query_executor.py:28] employee table created successfully.
+2023-11-09 09:30:58,984 INFO     [query_executor.py:30] customer table created successfully.
+2023-11-09 09:30:58,984 INFO     [query_executor.py:32] parking_slot table created successfully.
+2023-11-09 09:30:58,985 INFO     [query_executor.py:34] vehicle_type table created successfully.
+2023-11-09 09:30:58,985 INFO     [query_executor.py:36] slot_booking table created successfully.
+2023-11-09 09:30:58,985 INFO     [app.py:27] Starting with vehicle parking management system.
+2023-11-09 09:30:58,985 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:31:06,891 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:31:06,893 DEBUG    [authentication.py:45] Successful login into the system.
+2023-11-09 09:31:30,894 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:31:30,895 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:31:45,285 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:31:45,293 INFO     [query_executor.py:81] Data saved to database successfully.
+2023-11-09 09:31:49,861 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:32:00,778 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:32:07,214 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:32:20,729 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:32:31,926 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:32:42,476 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:33:03,733 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:33:24,358 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:33:34,409 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:33:34,425 INFO     [query_executor.py:81] Data saved to database successfully.
+2023-11-09 09:33:34,429 INFO     [query_executor.py:81] Data saved to database successfully.
+2023-11-09 09:33:55,034 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:35:09,325 INFO     [query_executor.py:26] authentication table created successfully.
+2023-11-09 09:35:09,325 INFO     [query_executor.py:28] employee table created successfully.
+2023-11-09 09:35:09,325 INFO     [query_executor.py:30] customer table created successfully.
+2023-11-09 09:35:09,325 INFO     [query_executor.py:32] parking_slot table created successfully.
+2023-11-09 09:35:09,326 INFO     [query_executor.py:34] vehicle_type table created successfully.
+2023-11-09 09:35:09,326 INFO     [query_executor.py:36] slot_booking table created successfully.
+2023-11-09 09:35:09,327 INFO     [app.py:27] Starting with vehicle parking management system.
+2023-11-09 09:35:09,327 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:35:19,134 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:35:19,136 DEBUG    [authentication.py:45] Successful login into the system.
+2023-11-09 09:35:21,593 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:35:34,667 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:35:34,844 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:35:34,859 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:35:34,866 INFO     [query_executor.py:81] Data saved to database successfully.
+2023-11-09 09:35:34,872 INFO     [query_executor.py:81] Data saved to database successfully.
+2023-11-09 09:35:45,445 INFO     [query_executor.py:58] Data fetched from database successfully.
+2023-11-09 09:36:42,395 INFO     [query_executor.py:58] Data fetched from database successfully.

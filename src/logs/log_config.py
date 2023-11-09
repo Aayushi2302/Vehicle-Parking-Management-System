@@ -21,7 +21,7 @@ class LogConfig:
     # query_executer logs
     SUCCESSFUL_AUTHENTICATION_TABLE_CREATION_INFO = "authentication table created successfully."
     DATA_FETCHED_FROM_DATABASE_SUCESSFUL_INFO = "Data fetched from database successfully."
-    DATa_SAVED_TO_DATABASE_SUCCESSFUL_INFO =  "Data saved to database successfully."
+    DATA_SAVED_TO_DATABASE_SUCCESSFUL_INFO =  "Data saved to database successfully."
     SUCCESSFUL_EMPLOYEE_TABLE_CREATION_INFO = "employee table created successfully."
     SUCCESSFUL_VEHICLE_TYPE_TABLE_CREATION_INFO = "vehicle_type table created successfully."
     SUCCESSFUL_PARKING_SLOT_TABLE_CREATION_INFO = "parking_slot table created successfully."

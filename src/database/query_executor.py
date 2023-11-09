@@ -78,7 +78,7 @@ class QueryExecutor:
                 cursor = connection.cursor()
                 cursor.execute(query, data)
                 connection.commit()
-                logger.info(LogConfig.DAAT_SAVED_TO_DATABASE_SUCCESSFUL_INFO)
+                logger.info(LogConfig.DATA_SAVED_TO_DATABASE_SUCCESSFUL_INFO)
                 return True
         except IntegrityError as error:
             logger.debug(error)

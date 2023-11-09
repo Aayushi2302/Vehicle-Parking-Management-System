@@ -58,10 +58,10 @@ class PromptsConfig:
 
     # prompts for validator
     USERNAME_FORMAT = "Username should be starting with 'user@' followed by lower-case string of length 5 or more"
-    CANNOT_CREATE_ADMIN : "You cannot create admin. Please enter some other role"
+    CANNOT_CREATE_ADMIN = "You cannot create admin. Please enter some other role"
     AGE_RESTRICTION = "Age should be greater than 15 and less than 60"
     NUMBER_INPUT : "{} is expected to be a number. Please enter correct input"
-    VEHICLE_NUMBER_FORMAT : "Vehcile number should be in the format 'MH-02-VD-9874'"
+    VEHICLE_NUMBER_FORMAT = "Vehcile number should be in the format 'MH-02-VD-9874'"
 
     # helpers module prompts
     STRONG_PASSWORD_REQUIREMENTS = """

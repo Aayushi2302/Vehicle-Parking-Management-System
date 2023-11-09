@@ -9,7 +9,7 @@ class QueryConfig:
     PARKING_SLOT_DETAIL_HEADER = ("Parking Slot No.", "Vehicle Type", "status")
     SLOT_BOOKING_DETAIL_HEADER = ("Customer ID", "Name", "Mobile No", "Vehicle No", "Vehicle Type", "Booking ID", "Parking Slot No", "In Date", "In Time", "Out Date", "Out Time", "Hours", "Charges")
     VEHICLE_TYPE_DETAIL_HEADER = ("Type ID", "Type Name", "Price Per Hour")
-    VEHICLE_TYPE_HEADER = ("Vehicle Type Name")
+    VEHICLE_TYPE_HEADER = ("Vehicle Type Name",)
 
     # queries for authentication table
     AUTHENTICATION_TABLE_CREATION = """
@@ -86,7 +86,7 @@ class QueryConfig:
         SELECT emp_id, status FROM employee
         WHERE email_address = ?
     """
-    UPDATE_EMPLOYEE_DETAIL_FROM_EMPID = """
+    UPDATE_EMPLOYEE_DETAIL_FROM_EMP_ID = """
         UPDATE employee SET 
         {} = ? WHERE emp_id = ?
     """
@@ -122,15 +122,11 @@ class QueryConfig:
         SELECT price_per_hour FROM vehicle_type
         WHERE type_id = ?
     """
-    FETCH_PRICE_PER_HOUR_FROM_TYPE_ID = """
-        SELECT type_id FROM vehicle_type
-        WHERE type_name = ?
-    """
     FETCH_VEHICLE_TYPE_ID_FROM_TYPE_NAME = """
         SELECT * FROM vehicle_type
         WHERE type_name = ?
     """
-    UPDATE_VEHICLE_TYPE_DETAIL_FROM_TYPE_ID : """
+    UPDATE_VEHICLE_TYPE_DETAIL_FROM_TYPE_ID = """
         UPDATE vehicle_type SET
         {} = ? WHERE type_id = ?
     """
