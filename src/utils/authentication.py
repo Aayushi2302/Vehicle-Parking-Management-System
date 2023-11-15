@@ -40,14 +40,14 @@ class Authentication:
         else:
             self.common_obj.create_new_password(username)
 
-    def role_based_access(self, role: str) -> None:
+    def role_based_access(self, role: str, username: str) -> None:
         """Method to assign role to user based on the credentials after authentication."""
         logging.debug(LogConfig.SUCCESSFUL_LOGIN_INFO)
         print(PromptsConfig.SUCCESSFUL_LOGIN + "\n")      
-        if role == "admin":
-            self.max_login_attempts = AdminHandler.admin_menu()
+        if role == AppConfig.ROLE_ADMIN:
+            self.max_login_attempts = AdminHandler.admin_menu(username)
         else:
-            self.max_login_attempts = EmployeeHandler.employee_menu()
+            self.max_login_attempts = EmployeeHandler.employee_menu(username)
 
     def login(self) -> None:
         """Method for authenticating user."""
@@ -78,12 +78,12 @@ class Authentication:
                     password = user_data[0][0]
                     role = user_data[0][1]
                     password_type = user_data[0][2]
-                    if password_type == "default":
+                    if password_type == AppConfig.PASSWORD_TYPE_DEFAULT:
                         self.first_login(username, password, input_password)
                     else:
                         hashed_password = hashlib.sha256(input_password.encode('utf-8')).hexdigest()
                         if hashed_password == password:
-                            self.role_based_access(role)
+                            self.role_based_access(role, username)
                         else:
                             self.invalid_login()  
    

@@ -12,8 +12,13 @@ class MenuConfig:
             6. Manage vehicle type and price
             7. Manage parking slots
             8. See status
-            9. View your details
+            9. Manage your profile
             10. Logout
+    """
+    MANAGE_PROFILE_MENU = """
+        You can peform following tasks :
+            1. View your details
+            2. Update your password
     """
     EMPLOYEE_DETAIL_UPDATE_MENU = """
         You can update the following details :

@@ -13,7 +13,7 @@ logger = logging.getLogger('admin_handler')
 class AdminHandler(ParkingStatus):
     """Class for performing admin menu related interactions."""
     @staticmethod
-    def admin_menu() -> int:
+    def admin_menu(username: str) -> int:
         """Method to handle admin menu."""
         admin_obj = AdminController()
         common_obj = Common()
@@ -92,12 +92,12 @@ class AdminHandler(ParkingStatus):
                                 logger.debug(ValueError)
                                 print(PromptsConfig.INVALID_INPUT + "\n")
                     case 9 : 
-                        common_obj.view_individual_employee_details()
+                        common_obj.view_individual_employee_details(username)
                     case 10 : 
                         print(PromptsConfig.SUCCESSFUL_LOGOUT + "\n")
                         return AppConfig.MAXIMUM_LOGIN_ATTEMPTS
                     case _ :
-                        print(PromptsConfig.invalid_input_prompt)
+                        print(PromptsConfig.INVALID_INPUT)
             except ValueError:
                 logger.debug(ValueError)
-                print(PromptsConfig.invalid_input_prompt + "\n")
+                print(PromptsConfig.INVALID_INPUT + "\n")

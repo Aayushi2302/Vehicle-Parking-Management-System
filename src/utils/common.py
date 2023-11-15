@@ -21,7 +21,7 @@ class Common:
         """Method for checking whether admin is registered in the database who is the first user of the system."""
         user_data = QueryExecutor.fetch_data_from_database(
                         QueryConfig.FETCH_EMPID_FROM_ROLE_AND_STATUS,
-                        ("admin", "active")
+                        (AppConfig.ROLE_ADMIN, AppConfig.EMPLOYEE_ROLE_ACTIVE)
                     )
         if not any(user_data):
             return True
@@ -55,30 +55,21 @@ class Common:
                 hashed_password = hashlib.sha256(confirm_password.encode('utf-8')).hexdigest()
                 is_success =  QueryExecutor.save_data_in_database(
                                 QueryConfig.UPDATE_DEFAULT_PASSWORD,
-                                (hashed_password, "permanent", username),
+                                (hashed_password, AppConfig.PASSWORD_TYPE_PERMANENT, username),
                               )
                 if is_success:
                     print(PromptsConfig.PASSWORD_CHANGE_SUCCESSFUL + "\n")
                 return
 
-    def view_individual_employee_details(self) -> None:
+    def view_individual_employee_details(self, username: str) -> None:
         """Method to display a particular user details."""
-        emp_email = UserInputValidation.input_email_address()
-        data =  QueryExecutor.fetch_data_from_database(
-                    QueryConfig.FETCH_EMP_ID_AND_STATUS_FROM_EMAIL,
-                    (emp_email, )
+        print(PromptsConfig.DETAILS_FOR_GIVEN_EMPLOYEE.format(username))
+        emp_data =  QueryExecutor.fetch_data_from_database(
+                    QueryConfig.VIEW_SINGLE_EMPLOYEE_DETAIL,
+                    (username, )
                 )
-        if not any(data):
-            print(PromptsConfig.DETAILS_NOT_EXIST.format(emp_email))
-        else:
-            emp_id = data[0][0]
-            print(PromptsConfig.DETAILS_FOR_GIVEN_EMPLOYEE.format(emp_id))
-            emp_data =  QueryExecutor.fetch_data_from_database(
-                        QueryConfig.VIEW_SINGLE_EMPLOYEE_DETAIL,
-                        (emp_id, )
-                    )
-            headers = QueryConfig.EMPLOYEE_DETAIL_HEADER
-            self.display_table(emp_data, headers)
+        headers = QueryConfig.EMPLOYEE_DETAIL_HEADER
+        self.display_table(emp_data, headers)
 
     def display_table(self, data: list, headers: list) -> None:
         """Method to display data in tabular format using tabulate."""

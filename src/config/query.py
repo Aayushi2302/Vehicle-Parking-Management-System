@@ -99,7 +99,7 @@ class QueryConfig:
         SELECT employee.emp_id, name, age, gender, mobile_no, email_address, username, role, status
         FROM employee INNER JOIN authentication ON
         employee.emp_id = authentication.emp_id
-        WHERE employee.emp_id = ?
+        WHERE employee.username = ?
     """
 
     # queries for vehicle_type table

@@ -28,7 +28,7 @@ class PromptsConfig:
         Login attempts left : {}
     """
     LOGIN_ATTEMPTS_EXHAUSTED = "Login attempts exhausted! Please login after some time..."
-    CHANGE_PASSWORD = "Change your password..."
+    CHANGE_PASSWORD = "Update your password..."
     INPUT_NEW_PASSWORD = "New Password : "
     INPUT_CONFIRM_PASSWORD = "Confirm Password : "
     PASSWORD_NOT_MATCH = "Password does not match. Please enter your password again!"
