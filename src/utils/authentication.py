@@ -8,7 +8,7 @@ import logging
 import time
 import maskpass
 
-from config.app_config import AppConfig
+from config.prompts import AppConfig
 from config.prompts import PromptsConfig
 from config.query import QueryConfig
 from controller.admin_controller import AdminController
@@ -44,18 +44,20 @@ class Authentication:
         """Method to assign role to user based on the credentials after authentication."""
         logging.debug(LogConfig.SUCCESSFUL_LOGIN_INFO)
         print(PromptsConfig.SUCCESSFUL_LOGIN + "\n")      
-        if role == AppConfig.ROLE_ADMIN:
-            self.max_login_attempts = AdminHandler.admin_menu(username)
+        if role == "admin":
+            admin_handler_obj = AdminHandler(username)
+            self.max_login_attempts = admin_handler_obj.admin_menu()
         else:
-            self.max_login_attempts = EmployeeHandler.employee_menu(username)
+            employee_handler_obj = EmployeeHandler(username)
+            self.max_login_attempts = employee_handler_obj.employee_menu()
 
     def login(self) -> None:
         """Method for authenticating user."""
         while True:
-            if self.common_obj.is_admin_registered():
+            if self.common_obj.admin_not_registered():
                 print(PromptsConfig.NO_ADMIN_FOUND + "\n")
                 admin_obj = AdminController()
-                admin_obj.register_employee()
+                admin_obj.register_employee("admin")
 
             if self.max_login_attempts == 0:
                 print(PromptsConfig.LOGIN_ATTEMPTS_EXHAUSTED + "\n")
@@ -78,7 +80,7 @@ class Authentication:
                     password = user_data[0][0]
                     role = user_data[0][1]
                     password_type = user_data[0][2]
-                    if password_type == AppConfig.PASSWORD_TYPE_DEFAULT:
+                    if password_type == "default":
                         self.first_login(username, password, input_password)
                     else:
                         hashed_password = hashlib.sha256(input_password.encode('utf-8')).hexdigest()

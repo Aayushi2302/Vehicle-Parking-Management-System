@@ -8,6 +8,9 @@ from utils.validator.parking_manager_input_validation import ParkingManagerInput
 
 class ParkingSlot:
     """This class contains all methods for maintaining parking slot information."""
+    def __init__(self) -> None:
+        self.common_obj = Common()
+
     def register_or_activate_parking_slot(self) -> None:
         """Method to register or activate parking slot."""
         parking_slot_number = ParkingManagerInputValidation.input_parking_slot_number()
@@ -15,13 +18,13 @@ class ParkingSlot:
                                 QueryConfig.FETCH_PARKING_SLOT_DETAIL_FROM_PARKING_SLOT_NO,
                                 (parking_slot_number, )
                             )
-        if not any(parking_slot_data):
+        if not parking_slot_data:
             vehicle_type_name = ParkingManagerInputValidation.input_vehicle_type_name()
             vehicle_type_data =  QueryExecutor.fetch_data_from_database(
                                     QueryConfig.FETCH_VEHICLE_TYPE_ID_FROM_TYPE_NAME,
                                     (vehicle_type_name, )
                                 )
-            if not any(vehicle_type_data):
+            if not vehicle_type_data:
                 print(PromptsConfig.VEHICLE_TYPE_DOES_NOT_EXIST + "\n")
                 return
             else:
@@ -48,14 +51,16 @@ class ParkingSlot:
         
     def deactivate_parking_slot(self) -> None:
         """Method to deactivate aprking slot."""
-        self.view_parking_slot()
+        if not self.view_parking_slot():
+            print(PromptsConfig.CANNOT_DEACTIVATE + "\n")
+            return
         print("\n" + PromptsConfig.INPUT_DETAILS_FOR_UPDATION + "\n")
         parking_slot_number = ParkingManagerInputValidation.input_parking_slot_number()
         data =  QueryExecutor.fetch_data_from_database(
                     QueryConfig.FETCH_PARKING_SLOT_DETAIL_FROM_PARKING_SLOT_NO,
                     (parking_slot_number, )
                 )
-        if not any(data):
+        if not data:
             print(PromptsConfig.PARKING_SLOT_NUMBER_DOES_NOT_EXIST + "\n")
             return
         status = data[0][2]
@@ -70,28 +75,31 @@ class ParkingSlot:
             if is_success:
                 print(PromptsConfig.PARKING_SLOT_DEACTIVATION_SUCCESSFUL + "\n")
 
-    def view_parking_slot(self) -> None:
+    def view_parking_slot(self) -> bool:
         """Method to view parking slot details."""
         parking_slot_data =  QueryExecutor.fetch_data_from_database(
                     QueryConfig.VIEW_PARKING_SLOT_DETAIL
                 )
-        if not any(parking_slot_data):
+        if not parking_slot_data:
             print(PromptsConfig.ZERO_RECORD.format("parking_slot"))
+            return False
         else:
-            common_obj = Common()
             headers = QueryConfig.PARKING_SLOT_DETAIL_HEADER
-            common_obj.display_table(parking_slot_data, headers)
+            self.common_obj.display_table(parking_slot_data, headers)
+            return True
 
     def remove_parking_slot(self) -> None:
         """Method to remove parking slot."""
-        self.view_parking_slot()
+        if not self.view_parking_slot():
+            print(PromptsConfig.CANNOT_PERFORM_DELETION + "\n")
+            return
         print("\n" + PromptsConfig.INPUT_DETAILS_FOR_UPDATION + "\n")
         parking_slot_number = ParkingManagerInputValidation.input_parking_slot_number()
         data =  QueryExecutor.fetch_data_from_database(
                     QueryConfig.FETCH_PARKING_SLOT_DETAIL_FROM_PARKING_SLOT_NO,
                     (parking_slot_number, )
                 )
-        if not any(data):
+        if not data:
             print(PromptsConfig.PARKING_SLOT_NUMBER_DOES_NOT_EXIST + "\n")
             return
         query_for_deleting_parking_slot = QueryConfig.UPDATE_PARKING_SLOT_DETAIL_FROM_PARKING_SLOT_NO.format("status")

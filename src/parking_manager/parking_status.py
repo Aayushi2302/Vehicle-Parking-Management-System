@@ -10,8 +10,11 @@ from utils.common import Common
 
 class ParkingStatus:
     """This class contains methods for displaying different booking status to admin."""
-    @staticmethod
-    def view_current_date_status() -> None:
+    def __init__(self) -> None:
+        self.common_obj = Common()
+        self.slot_booking_obj = SlotBooking()
+
+    def view_current_date_status(self) -> None:
         """Method for view current date booking status."""
         time_zone = pytz.timezone('Asia/Kolkata')
         current = datetime.now(time_zone)
@@ -20,15 +23,13 @@ class ParkingStatus:
                     QueryConfig.FETCH_CURRENT_DATE_RECORD,
                     (curr_date, )
                 )
-        if not any(data):
+        if not data:
             print(PromptsConfig.ZERO_RECORD.format("booking") + "\n")
         else:
-            common_obj = Common()
             headers = QueryConfig.SLOT_BOOKING_DETAIL_HEADER
-            common_obj.display_table(data, headers)
+            self.common_obj.display_table(data, headers)
             
-    @staticmethod
-    def view_current_year_status() -> None:
+    def view_current_year_status(self) -> None:
         """Method to see current year booking details."""
         time_zone = pytz.timezone('Asia/Kolkata')
         current = datetime.now(time_zone)
@@ -38,15 +39,12 @@ class ParkingStatus:
                     QueryConfig.FETCH_CURRENT_YEAR_RECORD,
                     (curr_year_query, )
                 )
-        if not any(data):
+        if not data:
             print(PromptsConfig.ZERO_RECORD.format("booking") + "\n")
         else:
-            common_obj = Common()
             headers = QueryConfig.SLOT_BOOKING_DETAIL_HEADER
-            common_obj.display_table(data, headers)
+            self.common_obj.display_table(data, headers)
 
-    @staticmethod
-    def view_total_vehicle_entries() -> None:
+    def view_total_vehicle_entries(self) -> None:
         """Method to display total booking status till current date."""
-        slot_booking_obj = SlotBooking()
-        slot_booking_obj.view_booking_details()
+        self.slot_booking_obj.view_booking_details()

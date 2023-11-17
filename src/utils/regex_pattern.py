@@ -41,3 +41,4 @@ def input_validation(regular_exp: str, input_field: str) -> bool:
         return True
     else:
         return False
+        

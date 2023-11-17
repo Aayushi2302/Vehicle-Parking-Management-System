@@ -8,6 +8,9 @@ from parking_manager.vehicle_type import VehicleType
 
 class ParkingCharges:
     """This class contains all the methods for calculating charges for parking."""
+    def __init__(self) -> None:
+        self.vehicle_type_obj = VehicleType()
+        
     def calculate_hours_spent_in_parking(self, in_date: str, in_time: str, out_date: str, out_time: str) -> float:
         """Method to calculate the number of hours spent by vehicle in parking facility."""
         in_date_time = in_date + " " + in_time
@@ -30,7 +33,7 @@ class ParkingCharges:
                             QueryConfig.FETCH_PRICE_PER_HOUR_FROM_TYPE_ID,
                             (type_id, )
                         )
-        if not any(price_per_hour):
+        if not price_per_hour:
             print(PromptsConfig.VEHICLE_TYPE_DOES_NOT_EXIST + "\n")
             return 0.0
         else:
@@ -39,8 +42,6 @@ class ParkingCharges:
             total_charges = round(total_charges, 2)
             return total_charges
 
-    @staticmethod
-    def view_parking_charges_for_vehicle_type() -> None:
+    def view_parking_charges_for_vehicle_type(self) -> None:
         """Method to view charges for each vehicle type."""
-        vehicle_type_obj = VehicleType()
-        vehicle_type_obj.view_vehicle_type()
+        self.vehicle_type_obj.view_vehicle_type()

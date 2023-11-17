@@ -11,6 +11,7 @@ password-generator = "*"
 random-password-generator = "*"
 tabulate = "*"
 pytz = "*"
+keyboard = "*"
 
 [dev-packages]
 

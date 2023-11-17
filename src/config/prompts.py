@@ -1,8 +1,38 @@
 """Module for storing prompts of the project."""
 
+class AppConfig:
+    """This class contains all the constants of the project."""
+    DATABASE_PATH = "src\\database\\parking_management.db"
+    LOG_FILE_PATH = "src\\logs\\logs.txt"
+    MAXIMUM_LOGIN_ATTEMPTS = 3
+
+    # headers constants
+    EMP_ID_HEADER = "EMP ID"
+    NAME_HEADER = "Name"
+    AGE_HEADER = "Age"
+    GENDER_HEADER = "Gender"
+    MOBILE_NO_HEADER = "Mobile No"
+    EMAIL_ADDRESS_HEADER = "Email Address"
+    USERNAME_HEADER = "Username"
+    ROLE_HEADER = "Role"
+    STATUS_HEADER = "Status"
+    CUSTOMER_ID_HEADER = "Customer ID"
+    VEHICLE_NO_HEADER = "Vehicle No"
+    VEHICLE_TYPE_NAME_HEADER = "Vehicle Type Name"
+    PARKING_SLOT_NO_HEADER = "Parking Slot No."
+    VEHICLE_TYPE_HEADER = "Vehcile Type"
+    BOOKING_ID_HEADER = "Booking ID"
+    IN_DATE_HEADER = "In Date"
+    IN_TIME_HEADER = "In Time"
+    OUT_DATE_HEADER = "Out Date"
+    OUT_TIME_HEADER = "Out Time"
+    HOURS_HEADER = "Hours"
+    CHARGES_HEADER = "Charges"
+    VEHICLE_TYPE_ID = "Vehicle Type ID"
+    PRICE_PER_HOUR = "Price Per Hour"
+
 class PromptsConfig:
     """This class contains all the prompts of the project."""
-    
     # app module prompts
     WELCOME_MESSAGE = "----Welcome to Vehicle Parking Management System----"
     EXIT_MESSAGE = "----Thank you for using the system. Hope you had a great experience----"
@@ -17,7 +47,10 @@ class PromptsConfig:
     DETAILS_NOT_EXIST = "{} does not exist..."
     NEW_DETAIL_INPUT = "Enter new {}..."
     SUCCESSFUL_LOGOUT = "Logout of the system successful..."
-    CANNOT_PERFORM_UPDATION = "Cannot perform updation. Enter correct data"
+    CANNOT_PERFORM_UPDATION = "Cannot perform updation. Enter correct data..."
+    CANNOT_PERFORM_DELETION = "Cannot perform deletion as no details exist..."
+    CANNOT_UPDATE_RECORD = "Cannot update record as no details exist..."
+    CANNOT_DEACTIVATE = "Cannot deactivate record as no details exist..."
 
     # authentication module prompts
     INPUT_CREDENTIAL = "Enter your credentials : "
@@ -54,13 +87,15 @@ class PromptsConfig:
     NOT_VALID_USERNAME = "Please enter a valid username"
     NOT_VALID_ROLE = "Please enter a valid role"
     DETAILS_FOR_GIVEN_EMPLOYEE = "The details for given employee with emp_id : {} are..."
-    CANNOT_INPUT_PAST_DATA = "You entered a date that has been already passed. Please enter a valid date for out_date"
+    CANNOT_INPUT_PAST_DATE = "You entered a date that has been already passed. Please enter a valid date for out_date"
+    CANNOT_REMOVE_ADMIN = "Admin can never be removed..."
+    CANNOT_UPDATE_ADMIN = "Admin details can't be updated..."
 
-    # prompts for validator
+    # validator modules prompts
     USERNAME_FORMAT = "Username should be starting with 'user@' followed by lower-case string of length 5 or more"
     CANNOT_CREATE_ADMIN = "You cannot create admin. Please enter some other role"
     AGE_RESTRICTION = "Age should be greater than 15 and less than 60"
-    NUMBER_INPUT : "{} is expected to be a number. Please enter correct input"
+    NUMBER_INPUT = "{} is expected to be a number. Please enter correct input"
     VEHICLE_NUMBER_FORMAT = "Vehcile number should be in the format 'MH-02-VD-9874'"
 
     # helpers module prompts
@@ -99,6 +134,8 @@ class PromptsConfig:
     PARKING_SLOT_ALREADY_VACANT = "Parking slot is already vacant. Please enter correct parking slot number"
     PARKING_SLOT_INACTIVE = "Parking slot is inactive. Cannot update status"
     PARKING_SLOT_DELETED = "Parking slot is deleted. Cannot update status"
+    CANNOT_VACATE_PARKING_SLOT = "Cannot vacate parking slot as no booking details exist..."
+    INPUT_DETAIL_TO_VACATE_PARKING_SLOT = "Enter details for vacating parking slot..."
 
     # employee_controller module prompts
     CUSTOMER_DETAILS_INPUT = "Enter customer details..."
@@ -118,6 +155,7 @@ class PromptsConfig:
     SLOT_BOOKING_UPDATION_SUCCESSFUL = "Slot booking data updated successfully..."
     INPUT_BOOKING_ID = "Booking ID : "
     PARKING_SLOT_VACANT = "Parking slot vacanted successfully..."
+    VEHICLE_ALREADY_VACATE_PARKING_SLOT = "Vehicle has already vacated parking slot..."
 
     # parking_charges prompts
     PRINT_PARKING_CHARGES = "Your parking charge is {} for {} hours spent in parking..."
@@ -131,3 +169,8 @@ class PromptsConfig:
         We will be back soon. 
         Thank you for waiting...
     """
+
+    # handler modules prompts
+    ADMIN_MENU_WELCOME_MESSAGE = "Welcome to Admin menu...."
+    EMPLOYEE_MENU_WELCOME_MESSAGE = "Welcome to Employee menu..."
+    PRESS_KEY_TO_CONTINUE = "Press any key to continue..."

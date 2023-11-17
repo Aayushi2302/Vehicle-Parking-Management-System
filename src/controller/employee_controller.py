@@ -13,6 +13,10 @@ from utils.validator.user_input_validation import UserInputValidation
 
 class EmployeeController(SlotBooking):
     """This class contains methods for maintaining all the methods or functionalities of Employee."""
+    def __init__(self) -> None:
+        self.common_obj = Common()
+        self.parking_slot_obj = ParkingSlot()
+
     def register_customer(self) -> None:
         """Method to register customer.""" 
         print(PromptsConfig.CUSTOMER_DETAILS_INPUT)
@@ -24,20 +28,19 @@ class EmployeeController(SlotBooking):
                     QueryConfig.FETCH_CUSTOMER_ID_AND_TYPE_ID_FROM_VEHICLE_NO,
                     (cust_vehicle_number, )
                 )
-        if any(data):
+        if data:
             print(PromptsConfig.CUSTOMER_ALREADY_EXIST + "\n")
             return
         print(PromptsConfig.INPUT_TYPE_NAME)
         vehicle_type_data = QueryExecutor.fetch_data_from_database(
                                 QueryConfig.FETCH_VEHICLE_TYPE
                             )
-        if not any(vehicle_type_data):
+        if not vehicle_type_data:
             print(PromptsConfig.ZERO_RECORD.format("vehicle_type"))
             return
         vehicle_type_name = [(vehicle[1],) for vehicle in vehicle_type_data]
-        common_obj = Common()
         headers = QueryConfig.VEHICLE_TYPE_HEADER
-        common_obj.display_table(vehicle_type_name, headers)
+        self.common_obj.display_table(vehicle_type_name, headers)
         choice = int(input(PromptsConfig.ENTER_CHOICE))
         if choice > len(vehicle_type_name) or choice < 1:
             print(PromptsConfig.INVALID_INPUT)
@@ -57,22 +60,24 @@ class EmployeeController(SlotBooking):
 
     def update_customer_details(self) -> None:
         """Method for updating customer details."""
-        self.view_customer_details()
+        if not self.view_customer_details():
+            print(PromptsConfig.CANNOT_UPDATE_RECORD + "\n")
+            return
         customer_details_update_menu()
     
-    def view_customer_details(self) -> None:
+    def view_customer_details(self) -> bool:
         """Method to view customer details."""
         data =  QueryExecutor.fetch_data_from_database(
                     QueryConfig.VIEW_CUSTOMER_DETAIL
                 )
-        if not any(data):
+        if not data:
             print(PromptsConfig.ZERO_RECORD.format("customer"))
+            return False
         else:
-            common_obj = Common()
             headers = QueryConfig.CUSTOMER_DETAIL_HEADER
-            common_obj.display_table(data, headers)
+            self.common_obj.display_table(data, headers)
+            return True
     
     def view_parking_slot_details(self) -> None:
         """Method to view parking slot details."""
-        parking_slot_obj = ParkingSlot()
-        parking_slot_obj.view_parking_slot() 
+        self.parking_slot_obj.view_parking_slot()

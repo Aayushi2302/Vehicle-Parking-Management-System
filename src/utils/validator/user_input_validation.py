@@ -1,6 +1,7 @@
 """Module for validating user related inputs."""
 import re
 import logging 
+from typing import Union
 
 from config.prompts import PromptsConfig
 from logs.log_config import LogConfig
@@ -39,7 +40,7 @@ class UserInputValidation:
                     print(PromptsConfig.AGE_RESTRICTION + "\n")
                     continue
                 return age
-            except TypeError as error:
+            except ValueError as error:
                 logger.debug(error)
                 print(PromptsConfig.NUMBER_INPUT.format("Age") + "\n")
 
@@ -57,19 +58,22 @@ class UserInputValidation:
                     raise ValueError
             except ValueError as e:
                 logger.debug(e)
-                print(PromptsConfig.INVALID_INPUT)
+                print(PromptsConfig.INVALID_INPUT + "\n")
    
     @staticmethod
-    def input_role() -> str:
+    def input_role(role: Union[str, None]) -> str:
         """ Validation of role using regular expression."""
-        while True:
-            role = input(PromptsConfig.INPUT_EMPLOYEE_ROLE).strip().lower()
-            is_valid_role = Regex.input_validation(Regex.ROLE_REGEX, role)
-            if role == "admin":
-                print(PromptsConfig.CANNOT_CREATE_ADMIN + "\n")
-                continue
-            if is_valid_role:
-                return role
+        if role:
+            return role
+        else:
+            while True:
+                input_role = input(PromptsConfig.INPUT_EMPLOYEE_ROLE).strip().lower()
+                is_valid_role = Regex.input_validation(Regex.ROLE_REGEX, input_role)
+                if input_role == "admin":
+                    print(PromptsConfig.CANNOT_CREATE_ADMIN + "\n")
+                    continue
+                if is_valid_role:
+                    return input_role
             
     @staticmethod
     def input_email_address() -> str:

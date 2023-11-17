@@ -68,8 +68,8 @@ class ParkingManagerInputValidation:
             try:
                 out_date = datetime.strptime(out_date, "%d-%m-%Y")
                 if out_date.date() < present.date():
-                    print(Config.cannot_input_past_date + "\n")
+                    print(PromptsConfig.CANNOT_INPUT_PAST_DATE + "\n")
                 else:
                     return out_date.date().strftime("%d-%m-%Y")
             except ValueError:
-                print(Config.invalid_input_prompt + "\n")
+                print(PromptsConfig.INVALID_INPUT + "\n")

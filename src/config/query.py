@@ -1,15 +1,54 @@
 """Module for storing queries of the project."""
 
+from config.prompts import AppConfig
+
 class QueryConfig:
     """This class contains all the queries of the project.""" 
-
     # table headers
-    EMPLOYEE_DETAIL_HEADER = ("EMP ID", "Name", "Age", "Gender", "Mobile No", "Email Address", "Username", "Role", "Status")
-    CUSTOMER_DETAIL_HEADER = ("Customer ID", "Name", "Mobile No", "Vehicle No", "Vehicle Type Name")
-    PARKING_SLOT_DETAIL_HEADER = ("Parking Slot No.", "Vehicle Type", "status")
-    SLOT_BOOKING_DETAIL_HEADER = ("Customer ID", "Name", "Mobile No", "Vehicle No", "Vehicle Type", "Booking ID", "Parking Slot No", "In Date", "In Time", "Out Date", "Out Time", "Hours", "Charges")
-    VEHICLE_TYPE_DETAIL_HEADER = ("Type ID", "Type Name", "Price Per Hour")
-    VEHICLE_TYPE_HEADER = ("Vehicle Type Name",)
+    EMPLOYEE_DETAIL_HEADER = (
+        AppConfig.EMP_ID_HEADER, 
+        AppConfig.NAME_HEADER, 
+        AppConfig.AGE_HEADER, 
+        AppConfig.GENDER_HEADER, 
+        AppConfig.MOBILE_NO_HEADER, 
+        AppConfig.EMAIL_ADDRESS_HEADER, 
+        AppConfig.USERNAME_HEADER, 
+        AppConfig.ROLE_HEADER, 
+        AppConfig.STATUS_HEADER
+    )
+    CUSTOMER_DETAIL_HEADER = (
+        AppConfig.CUSTOMER_ID_HEADER, 
+        AppConfig.NAME_HEADER, 
+        AppConfig.MOBILE_NO_HEADER, 
+        AppConfig.VEHICLE_NO_HEADER, 
+        AppConfig.VEHICLE_TYPE_NAME_HEADER
+    )
+    PARKING_SLOT_DETAIL_HEADER = (
+        AppConfig.PARKING_SLOT_NO_HEADER, 
+        AppConfig.VEHICLE_TYPE_HEADER, 
+        AppConfig.STATUS_HEADER
+    )
+    SLOT_BOOKING_DETAIL_HEADER = (
+        AppConfig.CUSTOMER_ID_HEADER, 
+        AppConfig.NAME_HEADER, 
+        AppConfig.MOBILE_NO_HEADER, 
+        AppConfig.VEHICLE_NO_HEADER, 
+        AppConfig.VEHICLE_TYPE_HEADER, 
+        AppConfig.BOOKING_ID_HEADER, 
+        AppConfig.PARKING_SLOT_NO_HEADER, 
+        AppConfig.IN_DATE_HEADER, 
+        AppConfig.IN_TIME_HEADER, 
+        AppConfig.OUT_DATE_HEADER, 
+        AppConfig.OUT_TIME_HEADER, 
+        AppConfig.HOURS_HEADER, 
+        AppConfig.CHARGES_HEADER
+    )
+    VEHICLE_TYPE_DETAIL_HEADER = (
+        AppConfig.VEHICLE_TYPE_ID, 
+        AppConfig.VEHICLE_TYPE_NAME_HEADER, 
+        AppConfig.PRICE_PER_HOUR
+    )
+    VEHICLE_TYPE_HEADER = (AppConfig.VEHICLE_TYPE_NAME_HEADER, )
 
     # queries for authentication table
     AUTHENTICATION_TABLE_CREATION = """
@@ -82,9 +121,15 @@ class QueryConfig:
             email_address
         ) VALUES(?, ?, ?, ?, ?, ?)
     """
-    FETCH_EMP_ID_AND_STATUS_FROM_EMAIL = """
-        SELECT emp_id, status FROM employee
+    FETCH_EMP_ID_FROM_EMAIL = """
+        SELECT emp_id FROM employee
         WHERE email_address = ?
+    """
+    FETCH_EMP_ID_STATUS_AND_ROLE_FROM_EMAIL = """
+        SELECT employee.emp_id, status, role FROM employee
+        INNER JOIN authentication ON
+        employee.emp_id = authentication.emp_id
+        WHERE employee.email_address = ?
     """
     UPDATE_EMPLOYEE_DETAIL_FROM_EMP_ID = """
         UPDATE employee SET 
@@ -94,12 +139,13 @@ class QueryConfig:
         SELECT employee.emp_id, name, age, gender, mobile_no, email_address, username, role, status
         FROM employee INNER JOIN authentication ON
         employee.emp_id = authentication.emp_id
+        WHERE authentication.role <> "admin"
     """
     VIEW_SINGLE_EMPLOYEE_DETAIL = """
         SELECT employee.emp_id, name, age, gender, mobile_no, email_address, username, role, status
         FROM employee INNER JOIN authentication ON
         employee.emp_id = authentication.emp_id
-        WHERE employee.username = ?
+        WHERE authentication.username = ?
     """
 
     # queries for vehicle_type table

@@ -19,6 +19,7 @@ class MenuConfig:
         You can peform following tasks :
             1. View your details
             2. Update your password
+            3. Back to main menu
     """
     EMPLOYEE_DETAIL_UPDATE_MENU = """
         You can update the following details :
@@ -29,14 +30,14 @@ class MenuConfig:
             5. Employee Email Address
             6. Employee Username
             7. Employee Role
-            8. Logout from here
+            8. Back to main menu
     """
     MANAGE_VEHICLE_TYPE_MENU = """
         You can do the following tasks :
             1. Register a vehicle type
             2. Update vehicle price
             3. See vehicle type details
-            4. Logout from here
+            4. Back to main menu
     """
     MANAGE_PARKING_SLOT_MENU = """
         You can do the following tasks :
@@ -44,7 +45,7 @@ class MenuConfig:
             2. Deactivate parking slot
             3. See parking slots
             4. Remove parking slot
-            5. Logout from here
+            5. Back to main menu
     """
     EMPLOYEE_MENU = """
         You can perform the following tasks :
@@ -64,12 +65,12 @@ class MenuConfig:
             1. Customer Name
             2. Customer Mobile No.
             3. Customer Check Out Date
-            4. Logout from here 
+            4. Back to main menu 
     """
     VIEW_PARKING_STATUS_MENU = """
         You can view the below parking status :
             1. View current date vehicle entries
             2. View current year vehicle entries
             3. View total vehicle entries
-            4. Logout from here
+            4. Back to main menu
     """

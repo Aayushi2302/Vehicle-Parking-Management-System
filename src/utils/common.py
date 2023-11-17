@@ -2,10 +2,12 @@
 from datetime import datetime
 import hashlib
 import logging
+import os
 import pytz
 import maskpass
 from tabulate import tabulate
 
+from config.prompts import AppConfig
 from config.prompts import PromptsConfig
 from config.query import QueryConfig
 from database.query_executor import QueryExecutor
@@ -17,13 +19,13 @@ logger = logging.getLogger('common')
 
 class Common:
     """This class contain helper methods to be shared throughout the project."""
-    def is_admin_registered(self) -> bool:
+    def admin_not_registered(self) -> bool:
         """Method for checking whether admin is registered in the database who is the first user of the system."""
         user_data = QueryExecutor.fetch_data_from_database(
                         QueryConfig.FETCH_EMPID_FROM_ROLE_AND_STATUS,
-                        (AppConfig.ROLE_ADMIN, AppConfig.EMPLOYEE_ROLE_ACTIVE)
+                        ("admin", "active")
                     )
-        if not any(user_data):
+        if not user_data:
             return True
         else:
             return False
@@ -55,7 +57,7 @@ class Common:
                 hashed_password = hashlib.sha256(confirm_password.encode('utf-8')).hexdigest()
                 is_success =  QueryExecutor.save_data_in_database(
                                 QueryConfig.UPDATE_DEFAULT_PASSWORD,
-                                (hashed_password, AppConfig.PASSWORD_TYPE_PERMANENT, username),
+                                (hashed_password, "permanent", username),
                               )
                 if is_success:
                     print(PromptsConfig.PASSWORD_CHANGE_SUCCESSFUL + "\n")
@@ -90,3 +92,8 @@ class Common:
         curr_time = current.strftime('%H:%M')
         curr_date = current.strftime('%d-%m-%Y')
         return (curr_date, curr_time)
+    
+    def clear_screen(self) -> None:
+        """Method to clear the screen after a task is performed."""
+        if input("\n" + PromptsConfig.PRESS_KEY_TO_CONTINUE + "\n"):
+            os.system('cls')

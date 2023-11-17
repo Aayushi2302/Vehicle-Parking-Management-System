@@ -6,7 +6,7 @@ from sqlite3 import IntegrityError
 from sqlite3 import OperationalError
 from sqlite3 import ProgrammingError
 
-from config.app_config import AppConfig
+from config.prompts import AppConfig
 from config.prompts import PromptsConfig
 from config.query import QueryConfig
 from database.db_connector import DatabaseConnection

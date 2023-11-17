@@ -17,7 +17,10 @@ class AdminController(VehicleType, ParkingSlot):
         This class contains all the functionalities that user can perform on Employee.
         Also this class inherits VehicleType and ParkingSlot class to implement further admin functionalities.
     """
-    def register_employee(self) -> None:
+    def __init___(self) -> None:
+        self.common_obj = Common()
+
+    def register_employee(self, role: str = None) -> None:
         """Method to register employee and save their data to database."""
         print(PromptsConfig.INPUT_EMPLOYEE_DETAILS + "\n")
         emp_id = "EMP" + shortuuid.ShortUUID().random(length = 5)
@@ -27,21 +30,21 @@ class AdminController(VehicleType, ParkingSlot):
                     QueryConfig.FETCH_EMPID_FROM_USERNAME,
                     (emp_username, )
                 )
-        if any(data):
+        if data:
             print(PromptsConfig.USER_ALREADY_EXIST.format(emp_username) + "\n")
         else:
             characters = string.ascii_letters + string.digits + "@#$&%"
             emp_password = ''.join(random.choice(characters) for _ in range(8))
             emp_age = UserInputValidation.input_age()
             emp_gender = UserInputValidation.input_gender()
-            emp_role = UserInputValidation.input_role()
+            emp_role = UserInputValidation.input_role(role)
             emp_mobile_number = UserInputValidation.input_mobile_number()
             emp_email_address = UserInputValidation.input_email_address()
             data =  QueryExecutor.fetch_data_from_database(
-                        QueryConfig.FETCH_EMP_ID_AND_STATUS_FROM_EMAIL,
+                        QueryConfig.FETCH_EMP_ID_FROM_EMAIL,
                         (emp_email_address, )
                     )
-            if any(data):
+            if data:
                 print(PromptsConfig.USER_ALREADY_EXIST.format(emp_email_address) + "\n")
             else:
                 is_success = QueryExecutor.save_data_in_database(
@@ -57,26 +60,29 @@ class AdminController(VehicleType, ParkingSlot):
 
     def update_employee_details(self) -> None:
         """Method to update employee details."""
-        self.view_employee_details()
+        if not self.view_employee_details():
+            print(PromptsConfig.CANNOT_UPDATE_RECORD + "\n")
+            return
         employee_details_update_menu()
                           
-    def view_employee_details(self) -> None:
+    def view_employee_details(self) -> bool:
         """Method to display employee details."""
         data =  QueryExecutor.fetch_data_from_database(
                     QueryConfig.VIEW_EMPLOYEE_DETAIL
                 )
-        if not any(data):
+        if not data:
             print(PromptsConfig.ZERO_RECORD.format("employee"))
+            return False
         else:
-            common_obj = Common()
             headers = QueryConfig.EMPLOYEE_DETAIL_HEADER
-            common_obj.display_table(data, headers)
+            self.common_obj.display_table(data, headers)
+            return True
 
     def view_default_password_for_employee(self) -> None:
         """Method to display default password of employee to admin."""
         emp_email = UserInputValidation.input_email_address()
         emp_id = QueryExecutor.fetch_data_from_database(
-                    QueryConfig.FETCH_EMP_ID_AND_STATUS_FROM_EMAIL,
+                    QueryConfig.FETCH_EMP_ID_FROM_EMAIL,
                     (emp_email, )
                 )
         if not emp_id:
@@ -96,18 +102,24 @@ class AdminController(VehicleType, ParkingSlot):
 
     def remove_employee(self) -> None:
         """Method to remove or inactivate the employee."""
-        self.view_employee_details()
+        if not self.view_employee_details():
+            print(PromptsConfig.CANNOT_PERFORM_DELETION + "\n")
+            return
         print("\n" + PromptsConfig.INPUT_DETAILS_FOR_REMOVAL + "\n")
         emp_email = UserInputValidation.input_email_address()
         data =  QueryExecutor.fetch_data_from_database(
-                    QueryConfig.FETCH_EMP_ID_AND_STATUS_FROM_EMAIL,
+                    QueryConfig.FETCH_EMP_ID_STATUS_AND_ROLE_FROM_EMAIL,
                     (emp_email, )
                 )
-        if not any(data):
+        if not data:
             print(PromptsConfig.DETAILS_NOT_EXIST.format(emp_email) + "\n")
             return
         emp_id = data[0][0]
         status = data[0][1]
+        role = data[0][2]
+        if role == "admin":
+            print(PromptsConfig.CANNOT_REMOVE_ADMIN + "\n")
+            return
         if status == "inactive":
             print(PromptsConfig.UPDATE_DETAILS_FOR_INACTIVE_STATUS)
         else:
