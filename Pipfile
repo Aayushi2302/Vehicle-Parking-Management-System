@@ -12,6 +12,7 @@ random-password-generator = "*"
 tabulate = "*"
 pytz = "*"
 keyboard = "*"
+pytest = "*"
 
 [dev-packages]
 

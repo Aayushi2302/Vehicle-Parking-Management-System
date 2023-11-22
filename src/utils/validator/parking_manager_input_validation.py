@@ -3,9 +3,9 @@ from datetime import datetime
 import logging
 import re
 
-from config.prompts import PromptsConfig
-from logs.log_config import LogConfig
-import utils.regex_pattern as Regex
+from src.config.prompts import PromptsConfig
+from src.logs.log_config import LogConfig
+import src.utils.regex_pattern as Regex
 
 logger = logging.getLogger('validations')
     

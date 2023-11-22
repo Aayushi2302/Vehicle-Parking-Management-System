@@ -2,12 +2,12 @@
 import random
 import shortuuid
 
-from config.prompts import PromptsConfig
-from config.query import QueryConfig
-from database.query_executor import QueryExecutor
-from parking_manager.parking_charges import ParkingCharges
-from utils.common import Common
-from utils.validator.parking_manager_input_validation import ParkingManagerInputValidation
+from src.config.prompts import PromptsConfig
+from src.config.query import QueryConfig
+from src.database.query_executor import QueryExecutor
+from src.parking_manager.parking_charges import ParkingCharges
+from src.utils.common import Common
+from src.utils.validator.parking_manager_input_validation import ParkingManagerInputValidation
 
 class SlotBooking:
     """This class contains methods for maintaing functionalities related to parking slot booking."""

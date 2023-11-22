@@ -1,10 +1,10 @@
 """Module for calculating charges for parking."""
 from datetime import datetime
 
-from config.prompts import PromptsConfig
-from config.query import QueryConfig
-from database.query_executor import QueryExecutor
-from parking_manager.vehicle_type import VehicleType
+from src.config.prompts import PromptsConfig
+from src.config.query import QueryConfig
+from src.database.query_executor import QueryExecutor
+from src.parking_manager.vehicle_type import VehicleType
 
 class ParkingCharges:
     """This class contains all the methods for calculating charges for parking."""

@@ -1,12 +1,12 @@
 """Module for handling employee menu related logic and user interactions."""
 import logging
 
-from config.prompts import AppConfig
-from config.prompts import PromptsConfig
-from config.menu import MenuConfig
-from controller.employee_controller import EmployeeController
-from parking_manager.parking_charges import ParkingCharges
-from utils.common import Common
+from src.config.prompts import AppConfig
+from src.config.prompts import PromptsConfig
+from src.config.menu import MenuConfig
+from src.controller.employee_controller import EmployeeController
+from src.parking_manager.parking_charges import ParkingCharges
+from src.utils.common import Common
 
 logger = logging.getLogger('employee_handler')
 

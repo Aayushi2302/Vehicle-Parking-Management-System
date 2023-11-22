@@ -2,8 +2,8 @@
 import logging
 import re
 
-from config.prompts import PromptsConfig
-from logs.log_config import LogConfig
+from src.config.prompts import PromptsConfig
+from src.logs.log_config import LogConfig
 
 logger = logging.getLogger('regex_pattern')
 

@@ -1,15 +1,15 @@
 """Module for maintaining all the methods or functionalities of Employee."""
 import shortuuid
 
-from config.prompts import PromptsConfig
-from config.query import QueryConfig
-from controller.handler.customer_update_handler import customer_details_update_menu
-from database.query_executor import QueryExecutor
-from parking_manager.parking_slots import ParkingSlot
-from parking_manager.slot_booking import SlotBooking
-from utils.common import Common
-from utils.validator.parking_manager_input_validation import ParkingManagerInputValidation
-from utils.validator.user_input_validation import UserInputValidation
+from src.config.prompts import PromptsConfig
+from src.config.query import QueryConfig
+from src.controller.handler.customer_update_handler import customer_details_update_menu
+from src.database.query_executor import QueryExecutor
+from src.parking_manager.parking_slots import ParkingSlot
+from src.parking_manager.slot_booking import SlotBooking
+from src.utils.common import Common
+from src.utils.validator.parking_manager_input_validation import ParkingManagerInputValidation
+from src.utils.validator.user_input_validation import UserInputValidation
 
 class EmployeeController(SlotBooking):
     """This class contains methods for maintaining all the methods or functionalities of Employee."""

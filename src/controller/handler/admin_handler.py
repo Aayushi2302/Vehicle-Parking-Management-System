@@ -2,12 +2,12 @@
 import keyboard
 import logging
 
-from config.prompts import AppConfig
-from config.prompts import PromptsConfig
-from config.menu import MenuConfig
-from controller.admin_controller import AdminController
-from parking_manager.parking_status import ParkingStatus
-from utils.common import Common
+from src.config.prompts import AppConfig
+from src.config.prompts import PromptsConfig
+from src.config.menu import MenuConfig
+from src.controller.admin_controller import AdminController
+from src.parking_manager.parking_status import ParkingStatus
+from src.utils.common import Common
 
 logger = logging.getLogger('admin_handler')
 

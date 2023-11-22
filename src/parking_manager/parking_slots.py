@@ -1,13 +1,13 @@
 """Module for maintaining parking slot details."""
 
-from config.prompts import PromptsConfig
-from config.query import QueryConfig
-from database.query_executor import QueryExecutor
-from utils.common import Common
-from utils.validator.parking_manager_input_validation import ParkingManagerInputValidation
+from src.config.prompts import PromptsConfig
+from src.config.query import QueryConfig
+from src.database.query_executor import QueryExecutor
+from src.utils.common import Common
+from src.utils.validator.parking_manager_input_validation import ParkingManagerInputValidation
 
 class ParkingSlot:
-    """This class contains all methods for maintaining parking slot information."""
+    """Thissrc. class contains all methods for maintaining parking slot information."""
     def __init__(self) -> None:
         self.common_obj = Common()
 

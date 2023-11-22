@@ -2,11 +2,11 @@
 from datetime import datetime
 import pytz
 
-from config.prompts import PromptsConfig
-from config.query import QueryConfig
-from database.query_executor import QueryExecutor
-from parking_manager.slot_booking import SlotBooking
-from utils.common import Common
+from src.config.prompts import PromptsConfig
+from src.config.query import QueryConfig
+from src.database.query_executor import QueryExecutor
+from src.parking_manager.slot_booking import SlotBooking
+from src.utils.common import Common
 
 class ParkingStatus:
     """This class contains methods for displaying different booking status to admin."""

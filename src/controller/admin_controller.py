@@ -3,17 +3,17 @@ import random
 import string
 import shortuuid
 
-from config.prompts import PromptsConfig
-from config.query import QueryConfig
-from controller.handler.employee_update_handler import employee_details_update_menu
-from database.query_executor import QueryExecutor
-from parking_manager.parking_slots import ParkingSlot
-from parking_manager.vehicle_type import VehicleType
-from utils.common import Common
-from utils.validator.user_input_validation import UserInputValidation
+from src.config.prompts import PromptsConfig
+from src.config.query import QueryConfig
+from src.controller.handler.employee_update_handler import employee_details_update_menu
+from src.database.query_executor import QueryExecutor
+from src.parking_manager.parking_slots import ParkingSlot
+from src.parking_manager.vehicle_type import VehicleType
+from src.utils.common import Common
+from src.utils.validator.user_input_validation import UserInputValidation
 
 class AdminController(VehicleType, ParkingSlot):
-    """
+    """src.
         This class contains all the functionalities that user can perform on Employee.
         Also this class inherits VehicleType and ParkingSlot class to implement further admin functionalities.
     """

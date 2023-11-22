@@ -1,12 +1,12 @@
 """Module for maintaing menu for updating employee details."""
 import logging
 
-from config.prompts import PromptsConfig
-from config.menu import MenuConfig
-from config.query import QueryConfig
-from database.query_executor import QueryExecutor
-from utils.common import Common
-from utils.validator.user_input_validation import UserInputValidation
+from src.config.prompts import PromptsConfig
+from src.config.menu import MenuConfig
+from src.config.query import QueryConfig
+from src.database.query_executor import QueryExecutor
+from src.utils.common import Common
+from src.utils.validator.user_input_validation import UserInputValidation
 
 logger = logging.getLogger('employee_update_handler')
 

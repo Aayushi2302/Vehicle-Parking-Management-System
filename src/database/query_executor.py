@@ -6,11 +6,11 @@ from sqlite3 import IntegrityError
 from sqlite3 import OperationalError
 from sqlite3 import ProgrammingError
 
-from config.prompts import AppConfig
-from config.prompts import PromptsConfig
-from config.query import QueryConfig
-from database.db_connector import DatabaseConnection
-from logs.log_config import LogConfig
+from src.config.prompts import AppConfig
+from src.config.prompts import PromptsConfig
+from src.config.query import QueryConfig
+from src.database.db_connector import DatabaseConnection
+from src.logs.log_config import LogConfig
 
 logger = logging.getLogger('query_executor')
 

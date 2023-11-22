@@ -7,13 +7,13 @@ import pytz
 import maskpass
 from tabulate import tabulate
 
-from config.prompts import AppConfig
-from config.prompts import PromptsConfig
-from config.query import QueryConfig
-from database.query_executor import QueryExecutor
-from logs.log_config import LogConfig
-import utils.regex_pattern as Regex
-from utils.validator.user_input_validation import UserInputValidation
+from src.config.prompts import AppConfig
+from src.config.prompts import PromptsConfig
+from src.config.query import QueryConfig
+from src.database.query_executor import QueryExecutor
+from src.logs.log_config import LogConfig
+import src.utils.regex_pattern as Regex
+from src.utils.validator.user_input_validation import UserInputValidation
 
 logger = logging.getLogger('common')
 

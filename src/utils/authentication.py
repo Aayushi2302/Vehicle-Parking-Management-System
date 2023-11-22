@@ -8,15 +8,15 @@ import logging
 import time
 import maskpass
 
-from config.prompts import AppConfig
-from config.prompts import PromptsConfig
-from config.query import QueryConfig
-from controller.admin_controller import AdminController
-from controller.handler.admin_handler import AdminHandler
-from controller.handler.employee_handler import EmployeeHandler
-from database.query_executor import QueryExecutor
-from logs.log_config import LogConfig
-from utils.common import Common
+from src.config.prompts import AppConfig
+from src.config.prompts import PromptsConfig
+from src.config.query import QueryConfig
+from src.controller.admin_controller import AdminController
+from src.controller.handler.admin_handler import AdminHandler
+from src.controller.handler.employee_handler import EmployeeHandler
+from src.database.query_executor import QueryExecutor
+from src.logs.log_config import LogConfig
+from src.utils.common import Common
 
 logger = logging.getLogger('authentication')
 

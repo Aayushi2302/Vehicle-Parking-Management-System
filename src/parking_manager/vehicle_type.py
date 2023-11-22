@@ -1,11 +1,11 @@
 """Module for performing operations related to vehicle_type(like car, truck, etc.) allowed for parking."""
 import shortuuid
 
-from config.prompts import PromptsConfig
-from config.query import QueryConfig
-from database.query_executor import QueryExecutor
-from utils.common import Common
-from utils.validator.parking_manager_input_validation import ParkingManagerInputValidation
+from src.config.prompts import PromptsConfig
+from src.config.query import QueryConfig
+from src.database.query_executor import QueryExecutor
+from src.utils.common import Common
+from src.utils.validator.parking_manager_input_validation import ParkingManagerInputValidation
 
 class VehicleType:
     """This class contains methods for performing operations on vehicle_type."""

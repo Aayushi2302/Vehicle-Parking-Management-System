@@ -1,6 +1,6 @@
 """Module for storing queries of the project."""
 
-from config.prompts import AppConfig
+from src.config.prompts import AppConfig
 
 class QueryConfig:
     """This class contains all the queries of the project.""" 

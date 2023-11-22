@@ -4,13 +4,13 @@
 """
 import logging
 
-from config.prompts import AppConfig
-from config.menu import MenuConfig
-from config.prompts import PromptsConfig
-from config.query import QueryConfig
-from database.query_executor import QueryExecutor
-from logs.log_config import LogConfig
-from utils.authentication import Authentication
+from src.config.prompts import AppConfig
+from src.config.menu import MenuConfig
+from src.config.prompts import PromptsConfig
+from src.config.query import QueryConfig
+from src.database.query_executor import QueryExecutor
+from src.logs.log_config import LogConfig
+from src.utils.authentication import Authentication
 
 # initializing logger for recording logs
 logging.basicConfig(
