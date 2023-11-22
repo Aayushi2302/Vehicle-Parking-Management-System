@@ -30,7 +30,7 @@ To run the project in your system, you have to perfrom following steps:
 
 ```bash
 # Clone the repository using following git command
-git clone https://github.com/Aayushi2302/Minor-Project---Vehicle-Parking-Management-System
+git clone https://github.com/Aayushi2302/Vehicle-Parking-Management-System
 
 # Install project dependencies using
 python -m pipenv install
